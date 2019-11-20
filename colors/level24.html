@@ -93,9 +93,9 @@
 			 <img src="../images/menu/gameover.png" style="display: block; margin-left: auto;margin-right: auto; width: 325px; height: 200px;" /> <br>
 			 
 			<br>
-			 <img src="../images/UI/exit1.png" id="next" style="margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/lederboard.png" id="next" style=" margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/help1.png" id="next" style="  margin-right: auto; width: 45px; height: 45px"/>
+			 <img src="../images/UI/exit1.png" id="exit" style="margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/lederboard.png" id="lead" style=" margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/help1.png" id="tuto" style="  margin-right: auto; width: 45px; height: 45px"/>
 		</div>
 	</div>
 </body>
@@ -197,7 +197,7 @@ if (counteur < 4 ) {
 	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
-	timer.innerHTML = "0:mins/10:secs";
+	timer.innerHTML = "0:mins/30:secs";
     interval = setInterval(function(){
             	
                 if(minute == 0 && second ==0){
@@ -224,6 +224,16 @@ if (counteur < 4 ) {
 
                 }
             },1000);
+
+</script>
+<script type="text/javascript">
+    $("#exit").on("click", function() {
+              setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
+    $("#lead").on("click", function() {
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
+    $("#tuto").on("click", function() {
+              setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
+
 
 </script>
 </html>

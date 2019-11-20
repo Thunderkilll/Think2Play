@@ -93,9 +93,9 @@
 			 <img src="../images/menu/gameover.png" style="display: block; margin-left: auto;margin-right: auto; width: 325px; height: 200px;" /> <br>
 			 
 			<br>
-			 <img src="../images/UI/exit1.png" id="next" style="margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/lederboard.png" id="next" style=" margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/help1.png" id="next" style="  margin-right: auto; width: 45px; height: 45px"/>
+			 <img src="../images/UI/exit1.png" id="exit" style="margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/lederboard.png" id="lead" style=" margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/help1.png" id="tuto" style="  margin-right: auto; width: 45px; height: 45px"/>
 		</div>
 	</div>
 </body>
@@ -128,10 +128,10 @@
         </script>
         <!-- *********** TIMER ********** -->   
 <script type="text/javascript">
-  var second = 60, minute = 2; hour = 0;
+  var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
-  timer.innerHTML = "2:mins/60:secs";
+  timer.innerHTML = "0:mins/30:secs";
     interval = setInterval(function(){
               
                 if(minute == 0 && second ==0){
@@ -162,7 +162,7 @@
 </script>
 <script>
 /** partie conteur **/
-    var counteur = 0 ;
+    var c = 0 ;
     var conteur = document.querySelector(".conteur");
     conteur.innerHTML = "Tries = 4";
 /** partie timer   **/
@@ -181,7 +181,7 @@
     var flag3="";
     var flag4="";
      function changeImage(el) {
-    if (counteur < 4) { 
+    if (c < 4) { 
        if( jQuery(el).css('background-color') == "rgb(179, 0, 134)" ) { 
 
               //v1
@@ -390,9 +390,10 @@
                 }
                 jQuery(el).remove();}   
      else {
+        c++;
           jQuery(el).remove();
   
-     conteur.innerHTML = "Tries = " + (5 - counteur);
+     conteur.innerHTML = "Tries = " + (5 - c);
      console.log("tries left"(5 - counteur));
      console.log("color selected " + jQuery(el).css('background-color'));
          
@@ -405,6 +406,15 @@
         {
             window.location = 'level1.html';
             }
-            </script>
+ 
+    $("#exit").on("click", function() {
+              setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
+    $("#lead").on("click", function() {
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
+    $("#tuto").on("click", function() {
+              setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
+
+
+</script>
 </html>
  

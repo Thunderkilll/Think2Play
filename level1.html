@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Color mania" />
+
+<title>Color Mania Level 1 </title>
+
+<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+</head>
+
+<body>
+
+	<div data-role="page" id="level1">
+		 <header>
+			<h1>
+				
+			    <img id ="back_icon" src="../images/UI/back.png" width="32" onclick="goBack()" />  
+				<img id ="help_icon" src="../images/UI/help1.png" width="32"  /> 
+				<img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()" />   
+				<img id ="music_icon" src="../images/UI/music.png" width="32" />   
+				<div class="timer"> </div>  
+			</h1>
+		</header>
+
+
+		<div class="product-preview">
+			<div class="product">
+
+				<img id="mask" src="../images/MtestImage.png" align="middle"
+					alt="Image">
+			</div>
+
+
+			<h4>Choose a Color:</h4>
+			<div class="swatch">
+				<!--  half  1 -->
+				<a href="#mask" data-role="button" onclick="changeImage(this)"
+					style="background: green;"></a> 
+				<a href="#mask" data-role="button"
+					onclick="changeImage(this)" style="background: Yellow;"></a> 
+				<a
+					href="#mask" data-role="button" onclick="changeImage(this)"
+					style="background: Orange;"></a>
+				<a href="#mask" data-role="button"
+					onclick="changeImage(this)" style="background: Blue;"></a> 
+				<a
+					href="#mask" data-role="button" onclick="changeImage(this)"
+					style="background: Purple;"></a> 
+				
+					<!--  half  2-->
+				<a href="#mask" data-role="button"
+					onclick="changeImage(this)" style="background: Red;"></a>
+				<a
+					href="#mask" data-role="button" onclick="changeImage(this)"
+					style="background: rgb(102, 255, 102);"></a>
+				<a href="#mask" data-role="button"
+					onclick="changeImage(this)" style="background: rgb(153, 51, 51);"></a> 
+				<a
+					href="#mask" data-role="button" onclick="changeImage(this)"
+					style="background: rgb(51, 51, 0);"></a> 
+				<a href="#mask" data-role="button"
+					onclick="changeImage(this)" style="background: rgb(51, 51, 153);"></a>
+
+ 
+			</div>
+		</div>
+
+
+
+
+		<footer>
+			<p>&copy; Khaled Guesmi & Slim Ahan Touati. All rights reserved.</p>
+		</footer>
+	</div>
+
+ 
+
+ 
+	<div id="myDialog" data-role="dialog" style="top: 0px; left: 0px"
+		class="ui-dialog-contain ui-corner-all ui-overlay-shadow ">
+
+		<div data-role="header" data-theme="a"
+			class="ui-corner-top ui-header ui-bar-a" role="banner">
+
+			<h1 class="ui-title" role="heading" aria-level="1">GOOD JOB!</h1>
+
+		</div>
+
+		<div data-role="content" data-theme="b"
+			class="ui-corner-bottom ui-content ui-body-b" role="main">
+
+			<img src="../images/pacMan.jpg"
+				style="display: block; margin-left: auto; margin-right: auto" /> <br>
+			<p style="margin-left: 45%;">PACMAN</p>
+			<br>
+			 <img src="../images/UI/next1.png" id="next" style="display: block;margin-left: auto;margin-right: auto; width: 45px; height: 45px"/>
+		
+		</div>
+	</div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/jquery.mobile-1.4.5.min.js"><</script>
+<script src="../js/main.js"></script>
+<script>
+     window.addEventListener('tizenhwkey', function(e) {
+         if (e.keyName == "back") {
+        	  window.location.href="../homepage.html";
+         }
+     });
+
+     </script>
+
+<script>
+function changeImage(el) {
+	if( jQuery(el).css('background-color') == "rgb(255, 255, 0)")
+		{
+	    //console.log(color);
+		$('#mask').attr("src", "../images/pacMan.jpg");
+	 
+		$.mobile.changePage("#myDialog");
+		 
+		}
+	else
+		jQuery(el).remove();
+}
+
+function nextLevel()
+{
+	window.location = 'level2.html';
+	}
+$(document).ready(function(){
+$('#next').click(function(){
+	document.location.href="level2.html";
+});});
+
+	</script>
+      <script type="text/javascript">
+      function goBack() {
+	     
+              setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
+         }
+     function exitToMenu(){
+                   setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
+     }
+	    </script>
+	
+<script type="text/javascript">
+	var second = 5, minute = 0; hour = 0;
+    var timer = document.querySelector(".timer");
+   
+    var interval;
+	timer.innerHTML = "0:mins/5:secs";
+            interval = setInterval(function(){
+            	second--;
+                timer.innerHTML = minute+":mins/"+second+":secs";
+                
+                if(second == 0){
+                    minute--;
+                    second=60; //**
+                }
+                if (minute == 0 && second > 0) {
+                	timer.style.color = "red";
+                }
+                if(minute == 0){
+                    if(second ==0)
+                    {
+
+                    	//pop up 
+                    	//freeze time 
+                      document.querySelector("$").mobile.changePage(dialog);                  	 
+                    }
+                }
+            },1000);
+	
+</script>
+</body>
+</html>

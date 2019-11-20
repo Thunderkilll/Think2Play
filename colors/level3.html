@@ -35,8 +35,7 @@
 				<img id ="help_icon" src="../images/UI/help1.png" width="32" /> 
 				<img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
 				<img id ="music_icon" src="../images/UI/music.png" width="32" />   
-				<div class="timer">
-    </div> 
+				<div class="timer">  </div> <div class="conteur"></div>
 			</h1>
 		</header>
     
@@ -68,14 +67,14 @@
 			
 		 <script type="text/javascript">
 	     $("#back_icon").on("click", function() {
-              setTimeout(function() {  window.location.href="level2.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
          function exitToMenu(){
                    setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
      }   
 	    </script>
 			<script>
 /** partie conteur **/
-    var counteur = 0 ;
+    var c = 0 ;
     var conteur = document.querySelector(".conteur");
     conteur.innerHTML = "Tries = 4";
 /** partie timer   **/
@@ -85,6 +84,7 @@
     var interval;
 /** partie color detection  **/
 function changeImage(el) {
+ if (c < 4) { 
 	console.log(jQuery(el).css('background-color'));
 	if( jQuery(el).css('background-color') == "rgb(59, 87, 157)")
 		{
@@ -94,8 +94,14 @@ function changeImage(el) {
  
 		
 		}
-	else
+	else{
+		c++;
+		conteur.innerHTML = "Tries = "+(4-c);
 		jQuery(el).remove();
+	}
+}else{
+	$.mobile.changePage("#timeOut");
+}
 }
 
 function nextLevel()
@@ -140,9 +146,9 @@ function nextLevel()
 			 <img src="../images/menu/gameover.png" style="display: block; margin-left: auto;margin-right: auto; width: 325px; height: 200px;" /> <br>
 			 
 			<br>
-			 <img src="../images/UI/exit1.png" id="next" style="margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/lederboard.png" id="next" style=" margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/help1.png" id="next" style="  margin-right: auto; width: 45px; height: 45px"/>
+			<img src="../images/UI/exit1.png" id="exit" style="margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/lederboard.png" id="lead" style=" margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/help1.png" id="tuto" style="  margin-right: auto; width: 45px; height: 45px"/>
 		</div>
 	</div>  
 </body>
@@ -150,10 +156,10 @@ function nextLevel()
 
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
-	var second = 10, minute = 0; hour = 0;
+	var second =30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
-	timer.innerHTML = "0:mins/10:secs";
+	timer.innerHTML = "0:mins/30:secs";
     interval = setInterval(function(){
             	
                 if(minute == 0 && second ==0){
@@ -180,6 +186,27 @@ function nextLevel()
 
                 }
             },1000);
+
+</script>
+<!-- *********** game over btns ********** -->	 	
+<script type="text/javascript">
+	$("#exit").on("click", function() {
+              setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
+	$("#lead").on("click", function() {
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
+	$("#tuto").on("click", function() {
+              setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
+
+
+</script>
+<script type="text/javascript">
+	$("#exit").on("click", function() {
+              setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
+	$("#lead").on("click", function() {
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
+	$("#tuto").on("click", function() {
+              setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
+
 
 </script>
 </html>

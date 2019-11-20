@@ -88,9 +88,9 @@
 			 <img src="../images/menu/gameover.png" style="display: block; margin-left: auto;margin-right: auto; width: 325px; height: 200px;" /> <br>
 			 
 			<br>
-			 <img src="../images/UI/exit1.png" id="next" style="margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/lederboard.png" id="next" style=" margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/help1.png" id="next" style="  margin-right: auto; width: 45px; height: 45px"/>
+			 <img src="../images/UI/exit1.png" id="exit" style="margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/lederboard.png" id="lead" style=" margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/help1.png" id="tuto" style="  margin-right: auto; width: 45px; height: 45px"/>
 		</div>
 	</div>
 
@@ -121,7 +121,7 @@
 
 <script type="text/javascript">
 	//*******************TIMER *******************************
-	var second = 10, minute = 0; hour = 0;
+	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
 	timer.innerHTML = "0:mins/10:secs";
@@ -172,7 +172,7 @@
 			var flag4="";
 
 function changeImage(el) {
-	if (counteur < 4) {}else{ }
+	if (counteur < 4) {
 console.log(jQuery(el).css('background-color'));
 	if( jQuery(el).css('background-color') == "rgb(237, 28, 36)" )
 		{
@@ -281,7 +281,9 @@ else if( jQuery(el).css('background-color') == "rgb(181, 230, 29)"  )
      jQuery(el).remove();
  
 	 }
-	 	 
+	 	 }else{  
+	 	   $.mobile.changePage("#timeOut");   	
+	 	    }
       }
       
 function nextLevel()
@@ -292,4 +294,14 @@ function nextLevel()
 			</script>
 
 </body>
+<script type="text/javascript">
+	$("#exit").on("click", function() {
+              setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
+	$("#lead").on("click", function() {
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
+	$("#tuto").on("click", function() {
+              setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
+
+
+</script>
 </html>

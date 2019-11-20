@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://esprit/Play2Think" version="1.0.0" viewmodes="maximized">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://esprit/iPlay2Think" version="1.0.0" viewmodes="maximized">
     <access origin="*" subdomains="true"></access>
     <tizen:application id="wpQiEVjrmr.est2Play" package="wpQiEVjrmr" required_version="2.4"/>
     <tizen:background-category value="media"/>
-    <content src="PicGame.html"/>
+    <content src="index.html"/>
     <description>this is like a game center for 3 games we are now trying to integrate them 3 inside our game center were we give the player the possibility to choose the game of thinking he wants to play</description>
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <icon src="logotizenr.png"/>
-    <name>Play2Think</name>
+    <name>iPlay2Think</name>
     <tizen:privilege name="http://tizen.org/privilege/fullscreen"/>
     <tizen:privilege name="http://tizen.org/privilege/account.read"/>
     <tizen:privilege name="http://tizen.org/privilege/account.write"/>
