@@ -131,7 +131,7 @@
     conteur.innerHTML = "Tries = 4";
     
     
-    var second = 10, minute = 0; hour = 0;
+    var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
     var flag1="";
@@ -139,10 +139,10 @@
             
    function changeImage(el) {
 if (counteur < 4 ) {
-    if( jQuery(el).css('background-color') == "rgb(18, 123, 202)" )
+    if( jQuery(el).css('background-color') == "rgb(27, 29, 116)" )
         { //azra9
         console.log("1: " + jQuery(el).css('background-color'));
-        flag1="rgb(18, 123, 202)";
+        flag1="rgb(27, 29, 116)";
         if (flag2!=""){
              $('#mask').attr("src", "../images/cptMorgan/captain-morgan-logo.jpg");
              jQuery(el).remove();
@@ -161,11 +161,11 @@ if (counteur < 4 ) {
         jQuery(el).remove();
     }
                 }
-    else if( jQuery(el).css('background-color') == "rgb(27, 29, 116)"  )
+    else if( jQuery(el).css('background-color') == "rgb(128, 0, 0)"  )
         
         { //maron
         console.log("2: " + jQuery(el).css('background-color'));
-         flag2= "rgb(27, 29, 116)";
+         flag2= "rgb(128, 0, 0)";
          if (flag1!=""){
              $('#mask').attr("src", "../images/cptMorgan/captain-morgan-logo.jpg");
              jQuery(el).remove();
@@ -181,8 +181,8 @@ if (counteur < 4 ) {
      {
      jQuery(el).remove();
      counteur ++ ;//1 2 3 4 5
-     conteur.innerHTML = "Tries = " + (5 - counteur);
-     console.log("tries left"(5 - counteur));
+     conteur.innerHTML = "Tries = " + (4 - counteur);
+     console.log("tries left"(4 - counteur));
      console.log("color selected " + jQuery(el).css('background-color'));
      }
  }else{
@@ -200,7 +200,7 @@ if (counteur < 4 ) {
             </script>
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
-	var second = 10, minute = 0; hour = 0;
+	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
 	timer.innerHTML = "0:mins/10:secs";

@@ -106,13 +106,13 @@
      });
      $(document).ready(function(){
    		$('#next').click(function(){
-   			document.location.href="homepage.html";
+   			 window.location.href="level11.html"
    		});});
      </script>
   <script type="text/javascript">
       function goBack() {
 	     
-              setTimeout(function() {  window.location.href="level15.html"; }, 0);
+              setTimeout(function() {  window.location.href="level8.html"; }, 0);
          }
      function exitToMenu(){
                    setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
@@ -172,6 +172,7 @@
 			var flag4="";
 
 function changeImage(el) {
+	if (counteur < 4) {}else{ }
 console.log(jQuery(el).css('background-color'));
 	if( jQuery(el).css('background-color') == "rgb(237, 28, 36)" )
 		{
@@ -192,8 +193,9 @@ console.log(jQuery(el).css('background-color'));
 			$('#mask').attr("src", "../images/ebay/ebay6.png");
 		else if(flag2 =="" && flag3 =="" && flag4 !="")
 			$('#mask').attr("src", "../images/ebay/ebay7.png");
-		else
+		else{
 	   	$('#mask').attr("src", "../images/ebay/ebay1.png");
+	     jQuery(el).remove();}
 				}
 	else if( jQuery(el).css('background-color') == "rgb(63, 72, 204)" )
 		{
@@ -214,8 +216,10 @@ console.log(jQuery(el).css('background-color'));
 			$('#mask').attr("src", "../images/ebay/ebay8.png");
 		else if(flag1 =="" && flag3 =="" && flag4 !="")
 			$('#mask').attr("src", "../images/ebay/ebay9.png");
-		else
-	   	$('#mask').attr("src", "../images/ebay/ebay5.png");
+		else{$('#mask').attr("src", "../images/ebay/ebay5.png");
+	  jQuery(el).remove();
+    }
+	   	
 				}
 	else if( jQuery(el).css('background-color') == "rgb(255, 201, 14)"  )
 		
@@ -238,8 +242,12 @@ console.log(jQuery(el).css('background-color'));
 	else if(flag1 =="" && flag2 =="" && flag4 !="")
 		$('#mask').attr("src", "../images/ebay/ebay11.png");
 	else
-   	$('#mask').attr("src", "../images/ebay/ebay12.png");
+   	{$('#mask').attr("src", "../images/ebay/ebay12.png");
+   jQuery(el).remove();
+    }
+			
 			}
+
 else if( jQuery(el).css('background-color') == "rgb(181, 230, 29)"  )
 		
     {
@@ -260,11 +268,16 @@ else if( jQuery(el).css('background-color') == "rgb(181, 230, 29)"  )
 		$('#mask').attr("src", "../images/ebay/ebay9.png");
 	else if(flag1 =="" && flag2 =="" && flag3 !="")
 		$('#mask').attr("src", "../images/ebay/ebay11.png");
-	else
+	else{
    	$('#mask').attr("src", "../images/ebay/ebay13.png");
+     jQuery(el).remove();
+    
+}
 			}
 	else
 	 {
+	 counteur ++ ;
+	 conteur.innerHTML = "Tries = "+(4- counteur);
      jQuery(el).remove();
  
 	 }
@@ -273,7 +286,7 @@ else if( jQuery(el).css('background-color') == "rgb(181, 230, 29)"  )
       
 function nextLevel()
 {
-	window.location = 'homepage.html';
+	 window.location.href="level11.html";
 	}
 
 			</script>

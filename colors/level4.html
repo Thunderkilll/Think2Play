@@ -23,7 +23,8 @@
 				<img id ="help_icon" src="../images/UI/help1.png" width="32" /> 
 				<img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
 				<img id ="music_icon" src="../images/UI/music.png" width="32" />      
-				
+				 <div class="timer"></div>
+                 <div class="conteur"></div>
 			</h1>
 		</header>
 
@@ -44,8 +45,7 @@
 					style="background: green;"></a>
 				<a href="#mask" data-role="button"
 					onclick="changeImage(this)" style="background: rgb(229, 151, 3);"></a>
-				<a href="#mask" data-role="button" onclick="changeImage(this)"
-					style="background: Orange;"></a>
+				<a href="#mask" data-role="button" onclick="changeImage(this)" style="background: Orange;"></a>
 			    <a href="#mask" data-role="button"
 					onclick="changeImage(this)" style="background: rgb(27, 29, 116);"></a>
 				<a href="#mask" data-role="button" onclick="changeImage(this)"
@@ -77,8 +77,7 @@
 	<div id="myDialog" data-role="dialog" style="top: 0px; left: 0px"
 		class="ui-dialog-contain ui-corner-all ui-overlay-shadow">
 
-		<div data-role="header" data-theme="d"
-			class="ui-corner-top ui-header ui-bar-a" role="banner">
+		<div data-role="header" data-theme="d" class="ui-corner-top ui-header ui-bar-a" role="banner">
 
 			<h1 class="ui-title" role="heading" aria-level="1">GREAT JOB!</h1>
 
@@ -128,7 +127,7 @@
      });
      $(document).ready(function(){
  		$('#next').click(function(){
- 			document.location.href="level5.html";
+ 			document.location.href="level6.html";
  		});});
   </script>
     <script type="text/javascript">
@@ -146,16 +145,16 @@
     var conteur = document.querySelector(".conteur");
     conteur.innerHTML = "Tries = 4";
 /** partie timer   **/
-
-    var second = 10, minute = 0; hour = 0;
+    var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
+  
 /** partie color detection  **/
 			var flag1="";
 			var flag2="";
 			
    function changeImage(el) {
-
+if (counteur < 4) {
 	if( jQuery(el).css('background-color') == "rgb(27, 29, 116)" )
 		{
 		console.log("1: " + jQuery(el).css('background-color'));
@@ -164,41 +163,49 @@
 			 $('#mask').attr("src", "../images/visaImage.jpg");
 	 
 			 $.mobile.changePage("#myDialog");}
-		else
-	   	$('#mask').attr("src", "../images/visaImage3.png");
-				}
+
+			 else{
+			 	console.log("good ");
+			 	$('#mask').attr("src", "../images/visaImage3.png");
+			 	jQuery(el).remove();
+		}
+		 }
+	  
 	else if( jQuery(el).css('background-color') == "rgb(229, 151, 3)"  )
 		
 	    {
-		console.log("2: " + jQuery(el).css('background-color'));
+	 
 		 flag2= "rgb(229, 151, 3)";
 		 if (flag1!=""){
 			 $('#mask').attr("src", "../images/visaImage.jpg");
 		  
 			 $.mobile.changePage("#myDialog");}
-		else
+		else{
+			console.log("good ");
+			jQuery(el).remove();
 	     $('#mask').attr("src", "../images/visaImage4.png");
+		}
 	    
 	 	}
 	else
 	 {
      jQuery(el).remove();
-     console.log("4: " + jQuery(el).css('background-color'));
+     counteur ++ ;//1 2 3 4 5
+     conteur.innerHTML = "Tries = "+(4-counteur);
+           
 	 }
-	 
-	
-		 
-      }
+	  }else{
+		 console.log("out of lives");
+		  $.mobile.changePage("#timeOut");
+      } 
+	 }
 
-function nextLevel()
-{
-	window.location = 'level5.html';
-	}
+ 
 
 			</script>
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
-	var second = 10, minute = 0; hour = 0;
+	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
 	timer.innerHTML = "0:mins/10:secs";

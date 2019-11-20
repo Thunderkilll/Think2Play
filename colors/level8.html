@@ -20,7 +20,7 @@
      });
      $(document).ready(function(){
    		$('#next').click(function(){
-   			document.location.href="level9.html";
+   			document.location.href="level10.html";
    		});});
      </script>
 </head>
@@ -34,7 +34,7 @@
 				<img id ="help_icon" src="../images/UI/help1.png" width="32" /> 
 				<img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
 				<img id ="music_icon" src="../images/UI/music.png" width="32" />   
-				<div class="timer"></div>
+				<div class="timer"></div><div class="conteur"></div>
 			</h1>
 		</header>
     
@@ -67,7 +67,7 @@
 	<script type="text/javascript">
       function goBack() {
 	     
-              setTimeout(function() {  window.location.href="level7.html"; }, 0);
+              setTimeout(function() {  window.location.href="level6.html"; }, 0);
          }
            function exitToMenu(){
                    setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
@@ -89,6 +89,7 @@
 			var flag2="";
 
 function changeImage(el) {
+	if (counteur < 4) {
 console.log(jQuery(el).css('background-color'));
 	if( jQuery(el).css('background-color') == "rgb(255, 0, 0)" )
 		{
@@ -118,15 +119,18 @@ console.log(jQuery(el).css('background-color'));
 	 	}
 	else
 	 {
-     jQuery(el).remove();
+	 	counteur ++ ;
+	 	 conteur.innerHTML = "Tries = "+ (4- counteur);
+         jQuery(el).remove();
   
 	 }
+	}else{ $.mobile.changePage("#timeOut");}
 	 	 
       }
       
 function nextLevel()
 {
-	window.location = 'level9.html';
+	window.location = 'level10.html';
 	}
 
 			</script>

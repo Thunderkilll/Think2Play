@@ -6,24 +6,10 @@
     <meta name="description" content="Color mania"/>
 
     <title>Color Mania 18 Actimel </title>
-<script src="../js/jquery-1.11.3.min.js"></script>
-<script src="../js/jquery.mobile-1.4.5.min.js"><</script>
 
 <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-    <script src="../js/main.js"></script>
-     <script>
-     window.addEventListener('tizenhwkey', function(e) {
-         if (e.keyName == "back") {
-        	  window.location.href="homepage.html";
-         }
-     });
-     $(document).ready(function(){
- 		$('#next').click(function(){
- 			document.location.href="level19.html";
- 		});});
-  </script>
-     </script>
+   
 </head>
 
 <body>
@@ -35,8 +21,7 @@
                 <img id ="help_icon" src="../images/UI/help1.png" width="32" /> 
                 <img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
                 <img id ="music_icon" src="../images/UI/music.png" width="32" />   
-                <div class="timer">
-    </div>
+                <div class="timer"> </div> <div class="conteur"></div>
             </h1>
         </header>
 
@@ -52,6 +37,7 @@
                 <div class="swatch">
                     <!--  half  1 -->
                     <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: rgb(0, 51, 0);"></a>
+                    
                     <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: rgb(0, 102, 255);"></a>
                     <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: rgb(204, 0, 102);"></a>
                     
@@ -64,171 +50,12 @@
                     
                     <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: rgb(153, 153, 102);"></a>
                     
-                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: rgb(255, 0, 255);"></a>
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: rgb(5, 250, 0);"></a>
                     
                 
                 </div>
     </div>
 
-   <script type="text/javascript">
-      function goBack() {
-         
-              setTimeout(function() {  window.location.href="level17.html"; }, 0);
-         }
-          function exitToMenu(){
-                   setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
-     }
-        </script>
-        <!-- *********** TIMER ********** -->	 	
-<script type="text/javascript">
-	var second = 10, minute = 0; hour = 0;
-    var timer = document.querySelector(".timer");
-    var interval;
-	timer.innerHTML = "0:mins/10:secs";
-    interval = setInterval(function(){
-            	
-                if(minute == 0 && second ==0){
-                     console.log("time ends ");
-                      $.mobile.changePage("#timeOut");   	 
-                     
-                }else{
-                	second--;
-                timer.innerHTML = minute+":mins/"+second+":secs";
-                
-                if(second == 0){
-                    minute--;
-                    second=60; //**
-                }
-                if (minute == 0 && second > 0) {
-                	console.log(" under 1 min left !!");
-                	timer.style.color = "red";
-                }
-                 if(minute == -1 ){
-                     console.log("time ends ");
-                      $.mobile.changePage("#timeOut");   	 
-                     
-                }
-
-                }
-            },1000);
-
-</script>
-<script>
-/** partie conteur **/
-    var counteur = 0 ;
-    var conteur = document.querySelector(".conteur");
-    conteur.innerHTML = "Tries = 4";
-/** partie timer   **/
-
-    var second = 10, minute = 0; hour = 0;
-    var timer = document.querySelector(".timer");
-    var interval;
-/** partie color detection  **/
-    //v1 = mauve
-    //v2 = asfir 
-    //v3 = a7mir
-    //v4 = azra9
-    var flag1="";
-    var flag2="";
-    var flag3="";
-    var flag4="";
-     function changeImage(el) {
-        console.log(jQuery(el).css('background-color'));
-       if( jQuery(el).css('background-color') == "rgb(179, 0, 134)" ) { //orange
-
-              //v1
-                flag1="rgb(179, 0, 134)";
-                if (flag2!="" && flag3!="" && flag4!="" ){
-                     $('#mask').attr("src", "../images/actimel/Actimel-logo.png"); //v1 & v2 & v3 win
-                     $.mobile.changePage("#myDialog");
-                 }
-                else if (flag2!="" && flag3=="" && flag4==""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-3.png");// v1 & v2
-                }
-                else if (flag2=="" && flag3!="" && flag4==""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-10.png"); // v1 & v3 
-                }
-                else if (flag2=="" && flag3=="" && flag4!=""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-9.png"); // v1 & v3 
-                }
-                else if (flag2!="" && flag3!="" && flag4==""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-5.png"); // v1 & v3 
-                }
-                else if (flag2!="" && flag3=="" && flag4!=""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-7.png"); // v1 & v3 
-                }
-                else if (flag2=="" && flag3!="" && flag4!=""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-11.png"); // v1 & v3 
-                }else{
-                   $('#mask').attr("src", "../images/actimel/Actimel-8.png"); // v1
-                }
-               jQuery(el).remove();}      
-              
-                        
-      else if( jQuery(el).css('background-color') == "rgb(230, 230, 0)"  )  {//c2
-          
-//v2 asfir
-                 flag2= "rgb(230, 230, 0)";
-     if (flag1!="" && flag3!="" && flag4!=""){
-                     $('#mask').attr("src", "../images/actimel/Actimel-logo.png"); //v1 & v2  
-                     $.mobile.changePage("#myDialog");
-                 } 
-                else if (flag1!="" && flag3=="" && flag4==""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-10.png");// v1 & v2
-                }
-                else if (flag1=="" && flag3!="" && flag4==""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-10.png"); // v2 & v3 
-                }
-                else if (flag1=="" && flag3=="" && flag4!=""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-4.png"); // v2 & v3 
-                }
-                else if (flag1!="" && flag3!="" && flag4==""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-5.png"); // v2 & v3 
-                }
-                else if (flag1!="" && flag3=="" && flag4!=""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-7.png"); // v2 & v3 
-                }
-                else if (flag1=="" && flag3!="" && flag4!=""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-6.png"); // v2 & v3 
-                } 
-                else{
-                   $('#mask').attr("src", "../images/actimel/Actimel-14.png"); // v2
-                }
-                jQuery(el).remove();}
-                
-   else if( jQuery(el).css('background-color') == "rgb(255, 0, 0)"  ) {
-
- //v3 a7mir
-                 flag3= "rgb(255, 0, 0)";
-  if (flag2!="" && flag1!=""){
-                     $('#mask').attr("src", "../images/actimel/Actimel-logo.png"); //v1 & v2 & v3 win
-                     $.mobile.changePage("#myDialog");
-                 } 
-                else if (flag2!="" && flag1==""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-2.png");// v3 & v2
-                }
-                else if (flag2=="" && flag1!=""){
-                    $('#mask').attr("src", "../images/actimel/Actimel-3.png"); // v1 & v3 
-                } 
-                else{
-                   $('#mask').attr("src", "../images/actimel/Actimel-1.png"); // v3  
-                }
-                              
-                jQuery(el).remove();
-                }
-     else {
-
-          jQuery(el).remove();
-         
-        }
-                 
-              }
-              
-        function nextLevel()
-        {
-            window.location = 'level1.html';
-            }
-            </script>
  <footer>
       <p>&copy; Khaled Guesmi & Slim Ahan Touati. All rights reserved.</p>
   </footer>   
@@ -272,5 +99,312 @@
 		</div>
 	</div>
 </body>
-</html>
 
+
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/jquery.mobile-1.4.5.min.js"><</script>
+ <script src="../js/main.js"></script>
+     <script>
+     window.addEventListener('tizenhwkey', function(e) {
+         if (e.keyName == "back") {
+            window.location.href="homepage.html";
+         }
+     });
+     $(document).ready(function(){
+    $('#next').click(function(){
+      document.location.href="level19.html";
+    });});
+  </script>
+     </script>
+   <script type="text/javascript">
+      function goBack() {
+         
+              setTimeout(function() {  window.location.href="level17.html"; }, 0);
+         }
+          function exitToMenu(){
+                   setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
+     }
+        </script>
+        <!-- *********** TIMER ********** -->   
+<script type="text/javascript">
+  var second = 60, minute = 2; hour = 0;
+    var timer = document.querySelector(".timer");
+    var interval;
+  timer.innerHTML = "2:mins/60:secs";
+    interval = setInterval(function(){
+              
+                if(minute == 0 && second ==0){
+                     console.log("time ends ");
+                      $.mobile.changePage("#timeOut");     
+                     
+                }else{
+                  second--;
+                timer.innerHTML = minute+":mins/"+second+":secs";
+                
+                if(second == 0){
+                    minute--;
+                    second=60; //**
+                }
+                if (minute == 0 && second > 0) {
+                  console.log(" under 1 min left !!");
+                  timer.style.color = "red";
+                }
+                 if(minute == -1 ){
+                     console.log("time ends ");
+                      $.mobile.changePage("#timeOut");     
+                     
+                }
+
+                }
+            },1000);
+
+</script>
+<script>
+/** partie conteur **/
+    var counteur = 0 ;
+    var conteur = document.querySelector(".conteur");
+    conteur.innerHTML = "Tries = 4";
+/** partie timer   **/
+
+    var second = 10, minute = 0; hour = 0;
+    var timer = document.querySelector(".timer");
+    var interval;
+/** partie color detection  **/
+    //v1 = mauve
+    //v2 = asfir 
+    //v3 = a7mir
+    //v4 = azra9
+
+    var flag1="";
+    var flag2="";
+    var flag3="";
+    var flag4="";
+     function changeImage(el) {
+    if (counteur < 4) { 
+       if( jQuery(el).css('background-color') == "rgb(179, 0, 134)" ) { 
+
+              //v1
+                flag1="rgb(179, 0, 134)";
+                 console.log(flag1);
+                   console.log(flag2);
+                   console.log(flag3);
+                   console.log(flag4);
+                if (flag2!="" && flag3!="" && flag4!="" ){
+                     $('#mask').attr("src", "../images/actimel/Actimel-logo.png"); //v1 & v2 & v3 win
+                      jQuery(el).remove();
+              interval = setInterval(function(){
+                second = 60;
+                second --; 
+                if (second == 0) {
+                    $.mobile.changePage("#timeOut");
+                }
+            },1000);
+
+             $.mobile.changePage("#myDialog");
+                 } else if (flag2!="" && flag3=="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-3.png");// v1 & v2
+                }
+                else if (flag2=="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-10.png"); // v1 & v3 
+                }
+                else if (flag2=="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-9.png"); // v1 & v3 
+                }
+                else if (flag2!="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-5.png"); // v1 & v3 
+                }
+                else if (flag2!="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-7.png"); // v1 & v3 
+                }
+                else if (flag2=="" && flag3!="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-11.png"); // v1 & v3 
+                }else{
+                   $('#mask').attr("src", "../images/actimel/Actimel-8.png"); // v1
+                }
+               jQuery(el).remove();
+             }if( jQuery(el).css('background-color') == "rgb(179, 0, 134)" ) { 
+
+              //v1
+                flag1="rgb(179, 0, 134)";
+                 console.log(flag1);
+                   console.log(flag2);
+                   console.log(flag3);
+                   console.log(flag4);
+                if (flag2!="" && flag3!="" && flag4!="" ){
+                     $('#mask').attr("src", "../images/actimel/Actimel-logo.png"); //v1 & v2 & v3 win
+                     jQuery(el).remove();
+              interval = setInterval(function(){
+                second = 60;
+                second --; 
+                if (second == 0) {
+                    $.mobile.changePage("#timeOut");
+                }
+            },1000);
+
+             $.mobile.changePage("#myDialog");
+                 }
+                else if (flag2!="" && flag3=="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-3.png");// v1 & v2
+                }
+                else if (flag2=="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-10.png"); // v1 & v3 
+                }
+                else if (flag2=="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-9.png"); // v1 & v3 
+                }
+                else if (flag2!="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-5.png"); // v1 & v3 
+                }
+                else if (flag2!="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-7.png"); // v1 & v3 
+                }
+                else if (flag2=="" && flag3!="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-11.png"); // v1 & v3 
+                }else{
+                   $('#mask').attr("src", "../images/actimel/Actimel-8.png"); // v1
+                }
+               jQuery(el).remove();
+             }      
+              
+                        
+      else if( jQuery(el).css('background-color') == "rgb(230, 230, 0)"  )  {//c2
+          
+//v2 asfir
+                 flag2= "rgb(230, 230, 0)";
+                   console.log(flag1);
+                   console.log(flag2);
+                   console.log(flag3);
+                   console.log(flag4);
+     if (flag1!="" && flag3!="" && flag4!=""){
+                     $('#mask').attr("src", "../images/actimel/Actimel-logo.png"); //v1 & v2  
+                     jQuery(el).remove();
+              interval = setInterval(function(){
+                second = 60;
+                second --; 
+                if (second == 0) {
+                    $.mobile.changePage("#timeOut");
+                }
+            },1000);
+
+             $.mobile.changePage("#myDialog");
+                 } 
+                else if (flag1!="" && flag3=="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-10.png");// v1 & v2
+                }
+                else if (flag1=="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-10.png"); // v2 & v3 
+                }
+                else if (flag1=="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-4.png"); // v2 & v3 
+                }
+                else if (flag1!="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-5.png"); // v2 & v3 
+                }
+                else if (flag1!="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-7.png"); // v2 & v3 
+                }
+                else if (flag1=="" && flag3!="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-6.png"); // v2 & v3 
+                } 
+                else{
+                   $('#mask').attr("src", "../images/actimel/Actimel-14.png"); // v2
+                }
+                jQuery(el).remove();}
+                
+   else if( jQuery(el).css('background-color') == "rgb(255, 0, 0)"  ) {
+
+ //v3 a7mir
+                 flag3= "rgb(255, 0, 0)";
+                    console.log(flag1);
+                   console.log(flag2);
+                   console.log(flag3);
+                   console.log(flag4);
+  if (flag1!="" && flag2!="" && flag4!=""){
+                     $('#mask').attr("src", "../images/actimel/Actimel-logo.png"); //v1 & v2  
+                   jQuery(el).remove();
+              interval = setInterval(function(){
+                second = 60;
+                second --; 
+                if (second == 0) {
+                    $.mobile.changePage("#timeOut");
+                }
+            },1000);
+
+             $.mobile.changePage("#myDialog");
+                 } 
+                else if (flag1!="" && flag2=="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-3.png");// v1 & v2
+                }
+                else if (flag1=="" && flag2!="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-2.png"); // v2 & v3 
+                }
+                else if (flag1=="" && flag2=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-4.png"); // v2 & v3 
+                }
+                else if (flag1!="" && flag2!="" && flag4==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-5.png"); // v2 & v3 
+                }
+                else if (flag1!="" && flag2=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-7.png"); // v2 & v3 
+                }
+                else if (flag1=="" && flag2!="" && flag4!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-6.png"); // v2 & v3 
+                } 
+                else{
+                   $('#mask').attr("src", "../images/actimel/Actimel-1.png"); // v2
+                }
+                jQuery(el).remove();}
+   else if( jQuery(el).css('background-color') == "rgb(26, 26, 255)"  ) {
+
+ //v4 azra9
+                 flag4= "rgb(26, 26, 255)";
+                  console.log(flag1);
+                   console.log(flag2);
+                   console.log(flag3);
+                   console.log(flag4);
+  if (flag1!="" && flag2!="" && flag3!=""){
+                     $('#mask').attr("src", "../images/actimel/Actimel-logo.png"); //v1 & v2  
+                     $.mobile.changePage("#myDialog");
+                 } 
+                else if (flag1!="" && flag3=="" && flag2==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-9.png");// v1 & v2
+                }
+                else if (flag1=="" && flag3!="" && flag2==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-4.png"); // v2 & v3 
+                }
+                else if (flag1=="" && flag3=="" && flag2!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-13.png"); // v2 & v3 
+                }
+                else if (flag1!="" && flag3!="" && flag2==""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-7.png"); // v2 & v3 
+                }
+                else if (flag1!="" && flag3=="" && flag2!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-11.png"); // v2 & v3 
+                }
+                else if (flag1=="" && flag3!="" && flag2!=""){
+                    $('#mask').attr("src", "../images/actimel/Actimel-6.png"); // v2 & v3 
+                } 
+                else{
+                   $('#mask').attr("src", "../images/actimel/Actimel-12.png"); // v2
+                }
+                jQuery(el).remove();}   
+     else {
+          jQuery(el).remove();
+  
+     conteur.innerHTML = "Tries = " + (5 - counteur);
+     console.log("tries left"(5 - counteur));
+     console.log("color selected " + jQuery(el).css('background-color'));
+         
+        }
+      }else{$.mobile.changePage("#timeOut");}   
+                 
+   }
+              
+        function nextLevel()
+        {
+            window.location = 'level1.html';
+            }
+            </script>
+</html>
+ 

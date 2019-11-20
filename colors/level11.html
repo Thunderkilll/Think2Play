@@ -21,7 +21,7 @@
 				<img id ="help_icon" src="../images/UI/help1.png" width="32" /> 
 				<img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
 				<img id ="music_icon" src="../images/UI/music.png" width="32" /> 
-				<div class="timer"> </div>    
+				<div class="timer"> </div> <div class="conteur"> </div>   
 			</h1>
 		</header>
     
@@ -105,7 +105,7 @@
      <script>
      window.addEventListener('tizenhwkey', function(e) {
          if (e.keyName == "back") {
-        	  window.location.href="homepage.html";
+        	  window.location.href="level10.html";
          }
      });
      $(document).ready(function(){
@@ -118,7 +118,7 @@
 			   <script type="text/javascript">
       function goBack() {
 	     
-              setTimeout(function() {  window.location.href="level9.html"; }, 0);
+              setTimeout(function() {  window.location.href="level10.html"; }, 0);
          }
             function exitToMenu(){
                    setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
@@ -127,7 +127,7 @@
 <script>
 
 /** partie conteur **/
-    var counteur = 0 ;
+    var c = 0 ;
     var conteur = document.querySelector(".conteur");
     conteur.innerHTML = "Tries = 4";
 /** partie timer   **/
@@ -141,6 +141,7 @@
 			var flag2="";
 
 function changeImage(el) {
+	if (c < 4) {
 console.log(jQuery(el).css('background-color'));
 	if( jQuery(el).css('background-color') == "rgb(255, 255, 0)" )
 		{
@@ -168,9 +169,12 @@ console.log(jQuery(el).css('background-color'));
 	 	}
 	else
 	 {
+	 	c++;
+	 	conteur.innerHTML = "Tries = "+(4-c);
      jQuery(el).remove();
  
 	 }
+	}else {$.mobile.changePage("#timeOut");}
 	 	 
       }
       

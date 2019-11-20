@@ -21,7 +21,7 @@
 				<img id ="help_icon" src="../images/UI/help1.png" width="32" /> 
 				<img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
 				<img id ="music_icon" src="../images/UI/music.png" width="32" /> 
-                <div class="timer"> </div>    
+                <div class="timer"> </div> <div class="conteur"> </div>       
 			</h1>
 		</header>
 		
@@ -119,7 +119,7 @@
     	 
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
-	var second = 10, minute = 0; hour = 0;
+	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
 	timer.innerHTML = "0:mins/10:secs";
@@ -164,7 +164,7 @@
     <script>
 
 /** partie conteur **/
-    var counteur = 0 ;
+    var c = 0 ;
     var conteur = document.querySelector(".conteur");
     conteur.innerHTML = "Tries = 4";
 /** partie timer   **/
@@ -176,7 +176,8 @@
           var flag1="";
           var flag2="";
 
-            function changeImage(el) {
+function changeImage(el) {
+    if (c < 4) {}else { $.mobile.changePage("#myDialog"); }
             console.log(jQuery(el).css('background-color'));
                 if( jQuery(el).css('background-color') == "rgb(255, 255, 255)" )
                     {

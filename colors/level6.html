@@ -20,7 +20,7 @@
      });
      $(document).ready(function(){
   		$('#next').click(function(){
-  			document.location.href="level7.html";
+  			document.location.href="level8.html";
   		});});
      </script>
 </head>
@@ -34,8 +34,7 @@
 				<img id ="help_icon" src="../images/UI/help1.png" width="32" /> 
 				<img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
 				<img id ="music_icon" src="../images/UI/music.png" width="32" />   
-				<div class="timer">
-    </div>
+				<div class="timer"> </div> <div class="conteur"></div>
 			</h1>
 		</header>
 		
@@ -67,7 +66,7 @@
 			
 	 <script type="text/javascript">
 	     $("#back_icon").on("click", function() {
-              setTimeout(function() {  window.location.href="level5.html"; }, 0); });
+              setTimeout(function() {  window.location.href="level4.html"; }, 0); });
            function exitToMenu(){
                    setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
      } 
@@ -75,7 +74,7 @@
 			
 <script>
 /** partie conteur **/
-    var counteur = 0 ;
+    var c = 0 ;
     var conteur = document.querySelector(".conteur");
     conteur.innerHTML = "Tries = 4";
 /** partie timer   **/
@@ -89,6 +88,7 @@
 			var flag3="";
 
 function changeImage(el) {
+	if (c < 4) {
 console.log(jQuery(el).css('background-color'));
 	if( jQuery(el).css('background-color') == "rgb(11, 171, 124)" )
 		{
@@ -154,15 +154,22 @@ console.log(jQuery(el).css('background-color'));
 			}
 	}else
 	 {
+	 c ++ ;//1 2 3 4 5
+     conteur.innerHTML = "Tries = "+(4-c);
+	 	
      jQuery(el).remove();
   
+	 }
+	}else{
+ 			 console.log("time ends ");
+                      $.mobile.changePage("#timeOut");   	 
 	 }
 	 	 
       }
       
 function nextLevel()
 {
-	window.location = 'level7.html';
+	window.location = 'level8.html';
 	}
 
 			</script>
@@ -211,7 +218,7 @@ function nextLevel()
 
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
-	var second = 10, minute = 0; hour = 0;
+	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
 	timer.innerHTML = "0:mins/10:secs";
