@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/game.css"> 
+    <link rel="stylesheet" type="text/css" href="css/appstyle.css"/>
+    <script src="js/sounds.js"></script>
+    <script src="js/graphics.js"></script>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+	     window.addEventListener('tizenhwkey', function(e) {
+	         if (e.keyName == "back") {
+	        	 window.tizen.application.getCurrentApplication().exit();
+	         }
+	     });
+   </script>
+  </head>
+
+  <body>
+
+  <div id="page" data-role="main"> 
+  
+     <div id="header" data-role="header">
+     
+           <div class="navbuttons">
+              <center>
+              	 
+              <div style='margin-top:10px'>
+              	<!--  <span id="textplayer1">Player 1</span>-->
+                 <span id="player1score" style='font-size:30px;color:black;width:50px;display:inline-block;margin-right:10px'>0</span>
+                 <img src="images/greenball.png" id="player1" class="playerimages">
+                 
+                 <!--  <span id="textplayer2">Player 2</span>-->
+                 
+                 <img src="images/redball.png" id="player2" class="playerimages" style='margin-right:10px'>
+                 <span id="player2score" style='font-size:30px;color:black;width:50px;display:inline-block'>0</span>
+                <!--  <img src="images/settings.png" id="settings">-->
+              <div style='width:300px;position:relative'>
+                  <img id="actionbar" src="images/triangle.png" id="triangle" style="left:100px;width: 25px; height: 25px; position: absolute;">
+              </div>
+              </div>
+              </center>
+              
+             <div id="ex-canvas-wrapper">
+               <div class="dropdown" id="canvas-dropdown">
+                <img data-toggle="dropdown" src="images/menuicon.png" id="menu">
+                 <ul class="dropdown-menu">
+                    <li>
+                     <img src="images/newgame.png" class="menuicons">
+                     <span id="refreshpage">New Game</span>
+                     </li>
+                   
+                    <li> 
+                     <img src="images/question.png" class="menuicons">
+                     <span id="helppage">Help</span>
+                     </li>
+                 </ul>
+              </div>
+              
+           <!--    <div class="settingsdropdown" id="canvas-settingsdropdown">
+                  <img data-toggle="settingsdropdown" src="images/settings.png" id="settings">
+                  <ul class="settingsdropdown-menu">
+                   <li> Difficulty Levels</li>
+                     <li>
+                       <span>Easy</span>
+                       <span class="radio"> 
+                          <input type="checkbox" class="checkbox" id="playEasyLevel" name="checkbox"></input>
+                        </span>
+                     </li>
+                    <li>
+                      <span>Medium </span>
+                       <span class="radio"> 
+                          <input type="checkbox" class="checkbox" id="playMediumLevel" name="checkbox"></input>
+                        </span>
+                      </li>
+                    <li>
+                       <span> Hard </span>
+                       <span class="radio"> 
+                          <input type="checkbox" class="checkbox" id="playHardLevel" name="checkbox"></input>
+                        </span>
+                       
+                     </li>
+                    
+                 </ul>
+              </div>-->
+              
+             </div>
+                    
+         </div>
+        </div>
+    
+    <div id="content" style='position: absolute; top:111px; bottom:51px; right:0px;left:0px;padding:5px'>
+
+    <div id="gameContainer">
+      <canvas id="gameTemplate" width="720" height="720"></canvas>
+      <canvas id="gameLine" width="720" height="720"></canvas>
+      <canvas id="gameLineTry" width="720" height="720"></canvas>
+      <canvas id="gameDots" width="720" height="720"></canvas>
+    </div>
+
+    </div>
+   
+     <div id="footer" class="footer"></div>
+ 
+</div>
+    <script src="js/GamePad.js"></script>
+
+    <script>
+
+    $(".dropdown>[data-toggle='dropdown']").on('click', function(){
+  	  $(this).parent(".dropdown").toggleClass("open");
+  	});
+
+    $('#refreshpage').click(function() { 
+	      window.location.reload();
+	});
+    $('#helppage').click(function() { 
+	      window.location.href="help.html";
+	});
+     /* $(".settingsdropdown>[data-toggle='settingsdropdown']").on('click', function(){
+    	  $(this).parent(".settingsdropdown").toggleClass("open");
+    	});*/
+      
+      var rows = 6;
+      var columns = 6;
+
+
+      var curPlayer = 1;
+
+      var clrPlayer1 = "#006600";
+      var clrPlayer2 = "red";
+
+      var imgPlayer1URL = 'images/greenball.png';
+      var imgPlayer2URL = 'images/redball.png';
+
+      var imgPlayer1 = new Image();
+      imgPlayer1.src = imgPlayer1URL;
+
+      var imgPlayer2 = new Image();
+      imgPlayer2.src = imgPlayer2URL;
+
+      function getColor() {
+       if (curPlayer == 1) {
+          return clrPlayer1;
+          
+       } if (curPlayer == 2) {
+         return clrPlayer2;
+       }
+      }
+
+      function getImage() {
+       if (curPlayer == 1) {
+          return imgPlayer1;
+       } if (curPlayer == 2) {
+         return imgPlayer2;
+       }
+      }
+
+      var GameController = function (rows, columns) {
+         var gridHLines = null;
+         var gridVLines = null;
+         var boxes = null;
+
+         var init = function(rows, columns) {
+           gridHLines = new Array(rows+1);
+           for(var i=0; i < rows+1; i++) {
+             gridHLines[i] = new Array(columns);
+           }
+
+           gridVLines = new Array(rows);
+           for(var i=0; i < rows; i++) {
+             gridVLines[i] = new Array(columns+1);
+           }
+
+           boxes = new Array(rows);
+           for(var i=0; i < rows; i++) {
+             boxes[i] = new Array(columns);
+           }
+         };
+
+         this.isLegal = function (r, c, dir) {
+            if (dir == 'v') {
+              if (!(r>=0 && r< rows) || !(c>=0 && c< columns+1)) {
+                return false;
+              }
+              if (gridVLines[r][c] == null) {
+                return true;
+              } else {
+                return false;
+              }
+            } else if (dir == 'h') {
+              if (!(r>=0 && r< rows+1) || !(c>=0 && c< columns)) {
+                return false;
+              }
+              if (gridHLines[r][c] == null) {
+                return true;
+              } else {
+                return false;
+              }
+            }
+         };
+
+         this.placed = function (r, c, dir) {
+           //console.log(r, c, dir);
+           playSound();
+           var completedABox = false;
+
+           if (dir == 'v') {
+             gridVLines[r][c] = 1;
+             if (c == 0) {
+               if (gridVLines[r][c+1] == 1 && gridHLines[r][c] == 1 && gridHLines[r+1][c] == 1) {
+                 completedABox = true;
+                 gPad.drawImageOnBox(getImage(), r, c);
+                 boxes[r][c] = curPlayer;
+               }
+             } else if (c == columns) {
+               if (gridVLines[r][c-1] == 1 && gridHLines[r][c-1] == 1 && gridHLines[r+1][c-1] == 1) {
+                 completedABox = true;
+                 gPad.drawImageOnBox(getImage(), r, c-1);
+                 boxes[r][c-1] = curPlayer;
+               }
+             } else {
+               if (gridVLines[r][c+1] == 1 && gridHLines[r][c] == 1 && gridHLines[r+1][c] == 1) {
+                 completedABox = true;
+                 gPad.drawImageOnBox(getImage(), r, c);
+                 boxes[r][c] = curPlayer;
+               }
+
+               if (gridVLines[r][c-1] == 1 && gridHLines[r][c-1] == 1 && gridHLines[r+1][c-1] == 1) {
+                 completedABox = true;
+                 gPad.drawImageOnBox(getImage(), r, c-1);
+                 boxes[r][c-1] = curPlayer;
+               }
+             }
+           } else if (dir == 'h') {
+             gridHLines[r][c] = 1;
+             if (r == 0) {
+               if (gridHLines[r+1][c] == 1 && gridVLines[r][c] == 1 && gridVLines[r][c+1] == 1) {
+                 completedABox = true;
+                 gPad.drawImageOnBox(getImage(), r, c);
+                 boxes[r][c] = curPlayer;
+               }
+             } else if (r == rows) {
+               if (gridHLines[r-1][c] == 1 && gridVLines[r-1][c] == 1 && gridVLines[r-1][c+1] == 1) {
+                 completedABox = true;
+                 gPad.drawImageOnBox(getImage(), r-1, c);
+                 boxes[r-1][c] = curPlayer;
+               }
+             } else {
+               if (gridHLines[r+1][c] == 1 && gridVLines[r][c] == 1 && gridVLines[r][c+1] == 1) {
+                 completedABox = true;
+                 gPad.drawImageOnBox(getImage(), r, c);
+                 boxes[r][c] = curPlayer;
+               }
+
+               if (gridHLines[r-1][c] == 1 && gridVLines[r-1][c] == 1 && gridVLines[r-1][c+1] == 1) {
+                 completedABox = true;
+                 gPad.drawImageOnBox(getImage(), r-1, c);
+                 boxes[r-1][c] = curPlayer;
+               }
+             }
+           }
+
+
+           if (!completedABox) {
+             if (curPlayer == 1) {
+            	$("#actionbar").stop(true,true).animate({left: 175}, 400);
+                curPlayer = 2;
+             } else if (curPlayer == 2) {
+            	$("#actionbar").stop(true,true).animate({left: 100}, 400);
+                curPlayer = 1;
+             }
+           } else {
+             var allCompeted = true;
+             var p1 = 0;
+             var p2 = 0;
+             for(var i=0; i < rows; i++) {
+               for(var j=0; j < columns; j++) {
+                 var val = boxes[i][j];
+                 if (val == null) {
+                   allCompeted = false;
+                   //break;
+                 } else if (val == 1) {
+                   p1 ++;
+                 } else if (val == 2) {
+                   p2 ++;
+                 }
+               }
+             }
+             $("#player1score").text(p1);
+             $("#player2score").text(p2);
+             if (allCompeted) {
+                var status = '';
+                if (p1>p2) {
+                   status = 'Green player wins';
+                } else if (p1<p2) {
+                   status = ' Red player wins';
+                } else {
+                   status = 'Game is tied';
+                }
+                $("#footer").html("Game Over : " + status);
+             }
+           }
+         };
+
+         init(rows, columns);
+      };
+
+      var gCtrl = new GameController(rows, columns);
+      var gPad = new GamePad(rows, columns, gCtrl);
+      
+
+    </script>
+  </body>
+
+</html>
+

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Color mania" />
+
+<title>Color Mania 16 google Chrome</title>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/jquery.mobile-1.4.5.min.js"><</script>
+
+<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script src="../js/main.js"></script>
+<script>
+     window.addEventListener('tizenhwkey', function(e) {
+         if (e.keyName == "back") {
+        	  window.location.href="homepage.html";
+         }
+     });
+     $(document).ready(function(){
+ 		$('#next').click(function(){
+ 			document.location.href="level17.html";
+ 		});});
+  </script>
+</script>
+</head>
+
+<body>
+
+	<div data-role="page" id="level16">
+		<header>
+			<h1>
+				<img id="back_icon" src="../images/UI/back.png" width="32"
+					onclick="goBack()" /> <img id="help_icon"
+					src="../images/UI/help1.png" width="32" /> <img id="exit1_icon"
+					src="../images/UI/exit1.png" width="32" onclick="exitToMenu()" /> <img
+					id="music_icon" src="../images/UI/music.png" width="32" />
+				<div class="timer"></div>
+			</h1>
+		</header>
+
+		<!-- color pic and grey images-->
+		<div class="product-preview">
+			<div class="product">
+
+				<img id="mask" src="../images/Chrome/chrome.png" align="middle"
+					alt="Image">
+			</div>
+
+
+			<h4>Choose a Color:</h4>
+			<div class="swatch">
+				<!--  half  1 -->
+				<a href="#mask" data-role="button" onclick="changeImage(this)"
+					style="background: rgb(66, 97, 19);"></a> <a href="#mask"
+					data-role="button" onclick="changeImage(this)"
+					style="background: rgb(18, 123, 202);"></a> <a href="#mask"
+					data-role="button" onclick="changeImage(this)"
+					style="background: rgb(204, 0, 102);"></a> <a href="#mask"
+					data-role="button" onclick="changeImage(this)"
+					style="background: rgb(27, 29, 116);"></a> <a href="#mask"
+					data-role="button" onclick="changeImage(this)"
+					style="background: Purple;"></a>
+				<!--  half  1 -->
+				<a href="#mask" data-role="button" onclick="changeImage(this)"
+					style="background: rgb(255, 0, 0);"></a> <a href="#mask"
+					data-role="button" onclick="changeImage(this)"
+					style="background: rgb(26, 162, 96);"></a> <a href="#mask"
+					data-role="button" onclick="changeImage(this)"
+					style="background: rgb(128, 0, 0);"></a> <a href="#mask"
+					data-role="button" onclick="changeImage(this)"
+					style="background: rgb(153, 153, 102);"></a> <a href="#mask"
+					data-role="button" onclick="changeImage(this)"
+					style="background: rgb(255, 177, 0);"></a>
+
+
+			</div>
+		</div>
+
+		<script type="text/javascript">
+      function goBack() {
+         
+              setTimeout(function() {  window.location.href="level15.html"; }, 0);
+         }
+          function exitToMenu(){
+                   setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
+     }
+        </script>
+		<!-- *********** TIMER ********** -->
+		<script type="text/javascript">
+	var second = 10, minute = 0; hour = 0;
+    var timer = document.querySelector(".timer");
+    var interval;
+	timer.innerHTML = "0:mins/10:secs";
+    interval = setInterval(function(){
+            	
+                if(minute == 0 && second ==0){
+                     console.log("time ends ");
+                      $.mobile.changePage("#timeOut");   	 
+                     
+                }else{
+                	second--;
+                timer.innerHTML = minute+":mins/"+second+":secs";
+                
+                if(second == 0){
+                    minute--;
+                    second=60; //**
+                }
+                if (minute == 0 && second > 0) {
+                	console.log(" under 1 min left !!");
+                	timer.style.color = "red";
+                }
+                 if(minute == -1 ){
+                     console.log("time ends ");
+                      $.mobile.changePage("#timeOut");   	 
+                     
+                }
+
+                }
+            },1000);
+
+</script>
+<script>
+    /** partie conteur **/
+    var counteur = 0 ;
+    var conteur = document.querySelector(".conteur");
+    conteur.innerHTML = "Tries = 4";
+/** partie timer   **/
+
+    var second = 10, minute = 0; hour = 0;
+    var timer = document.querySelector(".timer");
+    var interval;
+/** partie color detection  **/
+    var flag1="";
+    var flag2="";
+    var flag3="";
+    var flag4="";
+     function changeImage(el) {
+        console.log(jQuery(el).css('background-color'));
+       if( jQuery(el).css('background-color') == "rgb(18, 123, 202)" ) { //orange
+
+              //v1
+                flag1="rgb(18, 123, 202)";
+                if (flag2!="" && flag3!="" && flag4!=""){
+                     $('#mask').attr("src", "../images/Chrome/chrome0.png"); //v1 & v2 & v3 & v4 win
+                     $.mobile.changePage("#myDialog");
+                 }
+                else if (flag2!="" && flag3=="" && flag4==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome3.png");// v1 & v2
+                }
+                else if (flag2=="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome2.png"); // v1 & v3 
+                }
+                else if (flag2=="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome4.png"); // v1 & v4
+                }
+                 else if (flag2!="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome7.png"); // v2 & v3 & v1
+                }
+                 else if (flag2!="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome5.png"); // v1 & v2 & v4
+                }
+                 else if (flag2=="" && flag3!="" && flag4!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome6.png"); // v1 & v3 & v4
+                }
+                else{
+                   $('#mask').attr("src", "../images/Chrome/chrome1.png"); // v1
+                }
+               jQuery(el).remove();}      
+              
+                        
+      else if( jQuery(el).css('background-color') == "rgb(255, 177, 0)"  )  {//c2
+          
+//v2 asfir
+                 flag2= "rgb(255, 21, 30)";
+     if (flag1!="" && flag3!="" && flag4!=""){
+                     $('#mask').attr("src", "../images/Chrome/chrome0.png"); //v1 & v2 & v3 win
+                     $.mobile.changePage("#myDialog");
+                 } 
+                else if (flag1!="" && flag3=="" && flag4==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome3.png");// v1 & v2
+                }
+                else if (flag1=="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome13.png"); // v2 & v3 
+                }
+                else if (flag1=="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome9.png"); // v1 & v4
+                }   
+                else if (flag1!="" && flag3!="" && flag4==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome7.png"); // v2 & v3 & v1
+                }
+                else if (flag1!="" && flag3=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome5.png"); // v1 & v2 & v4
+                }
+                else if (flag1=="" && flag3!="" && flag4!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome10.png"); // v2 & v3 & v4
+                }
+                else{
+                   $('#mask').attr("src", "../images/Chrome/chrome12.png"); // v2
+                }
+                jQuery(el).remove();}
+                
+   else if( jQuery(el).css('background-color') == "rgb(26, 162, 96)"  ) {
+
+ //v3 akhdhir
+                 flag3= "rgb(26, 162, 96)";
+  if (flag2!="" && flag1!="" && flag4!=""){
+                     $('#mask').attr("src", "../images/Chrome/chrome0.png"); //v1 & v2 & v3 win
+                     $.mobile.changePage("#myDialog");
+                 } 
+                else if (flag2!="" && flag1=="" && flag4==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome13.png");// v1 & v2
+                }
+                else if (flag2=="" && flag1!="" && flag4==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome2.png"); // v1 & v3 
+                }
+                else if (flag2=="" && flag1=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome11.png"); // v1 & v4
+                }   
+                else if (flag2!="" && flag1!="" && flag4==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome7.png"); // v2 & v3 & v1
+                }
+                else if (flag2!="" && flag1=="" && flag4!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome10.png"); // v3 & v2 & v4
+                }
+                else if (flag2=="" && flag1!="" && flag4!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome6.png"); // v1 & v3 & v4
+                }
+                else{
+                   $('#mask').attr("src", "../images/Chrome/chrome14.png"); // v3  
+                }
+                              
+                jQuery(el).remove();
+                }
+     else if( jQuery(el).css('background-color') == "rgb(255, 0, 0)"  ) {
+//v4 red
+  
+                 flag4 = "rgb(255, 0, 0)";
+ if (flag2!="" && flag3!="" && flag1!=""){
+                     $('#mask').attr("src", "../images/Chrome/chrome0.png"); //v1 & v2 & v3 win
+                     $.mobile.changePage("#myDialog");
+                 }
+                else if (flag2!="" && flag3=="" && flag1==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome9.png");// v1 & v2
+                }
+                else if (flag2=="" && flag3!="" && flag1==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome11.png"); // v1 & v3 
+                }
+                else if (flag2=="" && flag3=="" && flag1!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome4.png"); // v1 & v4
+                }   
+                else if (flag2!="" && flag3!="" && flag1==""){
+                    $('#mask').attr("src", "../images/Chrome/chrome10.png"); // v4 & v3 & v2
+                }
+                 else if (flag2!="" && flag3=="" && flag1!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome5.png"); // v4 & v2 & v1
+                }
+                 else if (flag2=="" && flag3!="" && flag1!=""){
+                    $('#mask').attr("src", "../images/Chrome/chrome6.png"); // v4 & v3 & v1
+                }
+                else{
+                   $('#mask').attr("src", "../images/Chrome/chrome8.png"); // v4
+                }
+                jQuery(el).remove();
+                
+                
+     }  else {
+
+          jQuery(el).remove();
+         
+        }
+                 
+              }
+              
+        function nextLevel()
+        {
+            window.location = 'level17.html';
+            }
+            </script>
+		<footer>
+			<p>&copy; Khaled Guesmi & Slim Ahan Touati. All rights reserved.</p>
+		</footer>
+
+	</div>
+
+	<div id="myDialog" data-role="dialog" style="top: 0px; left: 0px"
+		class="ui-dialog-contain ui-corner-all ui-overlay-shadow">
+
+		<div data-role="header" data-theme="d"
+			class="ui-corner-top ui-header ui-bar-a" role="banner">
+
+			<h1 class="ui-title" role="heading" aria-level="1">AWESOME!</h1>
+
+		</div>
+
+		<div data-role="content" data-theme="c"
+			class="ui-corner-bottom ui-content ui-body-b" role="main">
+
+			<img src="../images/Chrome/chrome0.png"
+				style="display: block; margin-left: auto; margin-right: auto" /> <br>
+			<p style="margin-left: 45%;">Google Chrome</p>
+			<br> <img src="../images/UI/next1.png" id="next"
+				style="display: block; margin-left: auto; margin-right: auto; width: 45px; height: 45px" />
+
+		</div>
+	</div>
+	<!-- Game over screen -->
+	<div id="timeOut" data-role="dialog" style="top: 0px; left: 0px"
+		class="ui-dialog-contain ui-corner-all ui-overlay-shadow ">
+
+		<div data-role="header" data-theme="d"
+			class="ui-corner-top ui-header ui-bar-a" role="banner">
+
+			<h1 class="ui-title" role="heading" aria-level="1">GAME OVER !!</h1>
+
+		</div>
+
+		<div data-role="content" data-theme="c"
+			class="ui-corner-bottom ui-content ui-body-b" role="main">
+
+			<img src="../images/menu/gameover.png"
+				style="display: block; margin-left: auto; margin-right: auto; width: 325px; height: 200px;" />
+			<br> <br> <img src="../images/UI/exit1.png" id="next"
+				style="margin-right: auto; width: 45px; height: 45px" /> <img
+				src="../images/UI/lederboard.png" id="next"
+				style="margin-right: auto; width: 45px; height: 45px" /> <img
+				src="../images/UI/help1.png" id="next"
+				style="margin-right: auto; width: 45px; height: 45px" />
+		</div>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Color mania"/>
+
+    <title>Color Mania 14 Intel </title>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/jquery.mobile-1.4.5.min.js"><</script>
+
+<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <script src="../js/main.js"></script>
+     <script>
+     window.addEventListener('tizenhwkey', function(e) {
+         if (e.keyName == "back") {
+        	  window.location.href="homepage.html";
+         }
+     });
+     $(document).ready(function(){
+ 		$('#next').click(function(){
+ 			document.location.href="level15.html";
+ 		});});
+  </script>
+     </script>
+</head>
+
+<body>
+
+  <div data-role="page" id="level14">
+    <header>
+            <h1>
+                <img id ="back_icon" src="../images/UI/back.png" width="32"  onclick="goBack()"/>    
+                <img id ="help_icon" src="../images/UI/help1.png" width="32" /> 
+                <img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
+                <img id ="music_icon" src="../images/UI/music.png" width="32" />    
+                <div class="timer"> </div>
+            </h1>
+        </header>
+
+     <!-- color pic and grey images-->
+      <div class="product-preview">
+                <div class="product">
+                    
+                    <img id="mask" src="../images/intel/intel1.jpg" align="middle" alt="Image" >
+                </div>
+        
+                
+                <h4>Choose a Color:</h4>
+                <div class="swatch">
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: rgb(18, 123, 202);"></a>
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: Brown;"></a>
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: Orange;"></a>
+                    
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: rgb(18, 123, 201);"></a>
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: Purple;"></a>
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: rgb(136, 143, 0);"></a>
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: Green;"></a>
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: Red;"></a>
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: Blue;"></a>
+                    <a href="#mask" data-role="button" onclick="changeImage(this)" style="background: Black;"></a>
+                    
+                
+                </div>
+    </div>
+
+
+<script>
+    /** partie conteur **/
+    var counteur = 0 ;
+    var conteur = document.querySelector(".conteur");
+    conteur.innerHTML = "Tries = 4";
+/** partie timer   **/
+
+    var second = 10, minute = 0; hour = 0;
+    var timer = document.querySelector(".timer");
+    var interval;
+/** partie color detection  **/
+ var flag1="";
+ var flag2="";
+
+        function changeImage(el) {
+        console.log(jQuery(el).css('background-color'));
+            if( jQuery(el).css('background-color') == "rgb(18, 123, 202)" )
+                {
+                flag1="rgb(18, 123, 202)";
+                if (flag2!=""){
+                     $('#mask').attr("src", "../images/intel/FreeVector-Intel-Logo.jpg");
+               
+                     $.mobile.changePage("#myDialog");}
+                else
+                $('#mask').attr("src", "../images/intel/intel2.jpg");
+                          jQuery(el).remove();}
+
+            else if( jQuery(el).css('background-color') == "rgb(18, 123, 201)"  )
+                
+                {
+         
+                 flag2= "rgb(18, 123, 201)";
+                 if (flag1!=""){
+                     $('#mask').attr("src", "../images/FreeVector-Intel-Logo.jpg");
+                 
+                     $.mobile.changePage("#myDialog");}
+                else
+                 $('#mask').attr("src", "../images/intel/intel3.jpg");
+                
+                 jQuery(el).remove(); }
+            else
+             {
+             jQuery(el).remove();
+         
+             }
+                 
+              }
+              
+        function nextLevel()
+        {
+            window.location = 'level15.html';
+            }
+
+  </script>
+     <script type="text/javascript">
+      function goBack() {
+         
+              setTimeout(function() {  window.location.href="level13.html"; }, 0);
+         }
+          function exitToMenu(){
+                   setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
+     }
+        </script>
+ <footer>
+      <p>&copy; Khaled Guesmi & Slim Ahan Touati. All rights reserved.</p>
+  </footer>  
+   </div> 
+
+ 
+   <div id="myDialog" data-role="dialog" style="top:0px;left:0px" class="ui-dialog-contain ui-corner-all ui-overlay-shadow">
+    
+        <div data-role="header" data-theme="d" class="ui-corner-top ui-header ui-bar-a" role="banner">
+        
+            <h1 class="ui-title" role="heading" aria-level="1">AWESOME!</h1>
+
+        </div>
+
+        <div data-role="content" data-theme="c" class="ui-corner-bottom ui-content ui-body-b" role="main">
+            
+             <img   src="../images/intel/FreeVector-Intel-Logo.jpg" style=" display: block;margin-left: auto;margin-right: auto" /> 
+             <br> <p style="margin-left: 45%;"> INTEL </p> <br>
+            
+                <img src="../images/UI/next1.png" id="next" style="display: block;margin-left: auto;margin-right: auto; width: 45px; height: 45px"/>
+            
+        </div>
+    </div>
+    <!-- Game over screen -->
+  <div id="timeOut" data-role="dialog" style="top:0px;left:0px" class="ui-dialog-contain ui-corner-all ui-overlay-shadow ">
+	
+		<div data-role="header" data-theme="d" class="ui-corner-top ui-header ui-bar-a" role="banner">
+		
+			<h1 class="ui-title" role="heading" aria-level="1">GAME OVER !!</h1>
+
+		</div>
+
+		<div data-role="content" data-theme="c" class="ui-corner-bottom ui-content ui-body-b" role="main">
+			
+			 <img src="../images/menu/gameover.png" style="display: block; margin-left: auto;margin-right: auto; width: 325px; height: 200px;" /> <br>
+			 
+			<br>
+			 <img src="../images/UI/exit1.png" id="next" style="margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/lederboard.png" id="next" style=" margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/help1.png" id="next" style="  margin-right: auto; width: 45px; height: 45px"/>
+		</div>
+	</div>
+</body>
+<!-- *********** TIMER ********** -->	 	
+<script type="text/javascript">
+	var second = 10, minute = 0; hour = 0;
+    var timer = document.querySelector(".timer");
+    var interval;
+	timer.innerHTML = "0:mins/10:secs";
+    interval = setInterval(function(){
+            	
+                if(minute == 0 && second ==0){
+                     console.log("time ends ");
+                      $.mobile.changePage("#timeOut");   	 
+                     
+                }else{
+                	second--;
+                timer.innerHTML = minute+":mins/"+second+":secs";
+                
+                if(second == 0){
+                    minute--;
+                    second=60; //**
+                }
+                if (minute == 0 && second > 0) {
+                	console.log(" under 1 min left !!");
+                	timer.style.color = "red";
+                }
+                 if(minute == -1 ){
+                     console.log("time ends ");
+                      $.mobile.changePage("#timeOut");   	 
+                     
+                }
+
+                }
+            },1000);
+
+</script>
+</html>
+
+
+
+
+
+
+ 

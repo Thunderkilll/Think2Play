@@ -1,0 +1,29 @@
+html,body{
+	width:100%;
+	height: 100%;
+	margin: 0;
+	background-color: #FFFFCC; 
+}
+h1{
+	font-size: 20px;
+	color: red;
+	text-align: center;
+	margin-top: 30px;
+}
+h2{
+	font-size: 18px;
+	color: grey;
+	text-align: center;
+	margin-top: 30px;
+}
+
+p{
+	text-align: justify;
+	font-style: italic;
+	color: black;
+	text-indent: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 30px;
+	line-height: 30px;
+}

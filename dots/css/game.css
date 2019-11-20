@@ -1,0 +1,39 @@
+#navBar {
+    background-color:#dfdfdf;
+}
+
+#gameContainer {
+    position:relative;
+    height:100%;
+    width:100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#gameTemplate, #gameDots, #gameLineTry, #gameLine {
+    position:absolute;
+    height:100%;
+    width:100%;
+    margin-right: 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#gameTemplate {
+    z-index:1;
+    background-color: grey;
+}
+
+#gameLine {
+    z-index:2;    
+}
+
+#gameLineTry {
+    z-index:3;
+}
+
+#gameDots {
+    z-index:4;
+}

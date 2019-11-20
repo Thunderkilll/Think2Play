@@ -1,0 +1,165 @@
+html,body{
+	width:100%;
+	height: 100%;
+	margin: 0;
+	background-color: #FFFFCC; 
+}
+
+.navbuttons{
+  vertical-align: middle;
+}
+
+#header {
+  position: absolute;
+  top: 0;
+  height: 110px;
+  left:0;
+  width: 100%;
+  background-color: #FFFFCC ;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  margin-top: 100px;
+  background-color: #FFFFCC ;
+}
+
+
+/*.circular {
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	 margin-left: 120px;
+	 margin-top: 20px;
+	background: url("images/maleshape.png") no-repeat;
+	position: absolute;
+	}*/
+#player1{
+	width: 45px;
+	height : 45px;
+	border: 1px solid #006600;
+	border-radius:300em;
+	background: white;
+} 
+#player2{
+	width: 45px;
+	height : 45px;
+	margin-left:20px;
+	border: 1px solid orange;
+	border-radius:300em;
+	background: white;
+}
+#textplayer1{
+	top: 10px;
+	margin-left: 55px;
+	position: absolute;
+	font-style: italic;
+	color: black;
+	font-weight: bold;
+	vertical-align: middle;
+}
+#textplayer2{
+	top: 10px;
+	margin-right: 78px;
+	position: absolute;
+	font-style: italic;
+	font-weight: bold;
+	color: black;
+	vertical-align: middle;
+}
+ 
+#settings{
+	position: absolute;
+	margin-top: 10px;
+	margin-left : 15px;
+	width: 25px;
+	height: 25px;
+}
+
+#menu{
+	width: 20px;
+	height: 20px;
+}
+
+.dropdown>.dropdown-menu{
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:150px;
+    display: none;
+    border: 1px solid #bdc3c7;
+    list-style-type: none;
+    background: #bdc3c7;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 50px;
+    border: 2px solid black;
+	border-radius: 5px;
+	padding: 0;
+	z-index:100;
+}
+.dropdown.open>.dropdown-menu{
+  display: inline-block;
+}
+
+#ex-canvas-wrapper{
+    position: absolute;
+    top : 5px;
+    right: 5px;
+}
+
+li{
+	 list-style: none;
+	 display: block;
+	 border-bottom: 1px solid #000000;
+	 margin: 0;
+	 padding-left : 10px;	
+	 color: black;
+	 vertical-align: centre; 
+}
+.settingsdropdown>.settingsdropdown-menu{
+  display: none;
+  position: absolute;
+  border: 1px solid #bdc3c7;
+  min-width: 200px;
+  margin-left: 50px;
+  margin-top: 80px;
+   list-style-type: none;
+    background: #bdc3c7;
+    color: white;
+    height: 202px;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 50px;
+    border: 2px solid black;
+	border-radius: 5px;
+	padding: 0;
+}
+.settingsdropdown.open>.settingsdropdown-menu{
+  display: inline-block;
+}
+
+.menuicons{
+    width: 20px;
+    height: 20px;
+    top: 10px;
+}
+ 
+.radio{
+	float: right;
+	transform: scale(2, 2); 
+    -moz-transform: scale(1.5, 1.5); 
+    -ms-transform: scale(1.5, 1.5); 
+    -webkit-transform: scale(1.5, 1.5); 
+    -o-transform: scale(1.5, 1.5); 
+    margin-right: 5px;
+    color: red;   
+}
