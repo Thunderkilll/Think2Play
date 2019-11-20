@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Chose difficulty</title>
+  <link rel="stylesheet" href="difficulty.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="flex-container" style="text-align:center;">
+            <div>
+            
+            
+             
+
+              <button class="button_t3 btn rounded outline-4" onclick="easy_selected()">Easy   </button>
+              <br>
+              <button class="button_t3 btn rounded outline-4" onclick="medium_selected()">Medium</button>
+              <br>
+              <button class="button_t3 btn rounded outline-4" onclick="hard_selected()">Hard   </button>
+              <br>
+              
+            
+            </div>
+<!-- partial -->
+  
+</body>
+
+
+
+<script>
+    function easy_selected() {
+    sessionStorage.setItem("difficulty", "easy");
+
+     window.location.href="cardgame.html"; 
+    }
+    function medium_selected() {
+      sessionStorage.setItem("difficulty", "medium");
+
+     window.location.href="cardgame.html"; 
+    }
+    function hard_selected() {
+    sessionStorage.setItem("difficulty", "hard");
+
+     window.location.href="cardgame.html"; 
+    }
+
+     </script>
+</html>

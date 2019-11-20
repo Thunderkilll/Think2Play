@@ -1,0 +1,71 @@
+/* buttons */
+@font-face {
+  font-family: "Big Noodle Too";
+  src: url("https://overwatch-a.akamaihd.net/fonts/big-noodle-too-oblique-0762bcfb7ce452ecfa21830ab40ee34f9bf2e6fbcecb649c8995bd59fdf93a74a8345855c3890ec3901ac7ca442040112f37f387c98a57ced5af61d92ee8e06c.woff")
+    format('woff');
+}
+
+
+  
+@font-face {
+  font-family: overwatch;
+  src: url(https://us.battle.net/forums/static/fonts/f014015d/f014015d.woff);
+}
+.button_t3 {
+  border: none;
+  color: white;
+  padding: 30px 50px; 
+  width: 70%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 23px;
+  margin: 3%;
+  
+  cursor: pointer;
+}
+
+
+/* rounded buttons */
+
+.btn.rounded {
+  border-radius: 20px; 
+  color: black;}
+
+
+/* rounded w/o fill buttons */
+
+ 
+
+/* best condidate is 4*/
+.btn.rounded.outline-4 {
+  background-image: url('1.png'); 
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: transparent;
+    border-radius: 20px;
+    color: white;
+    text-transform: uppercase;
+    height: 100%;
+    font-family: overwatch;
+    font-size: 23px;
+    border: 2px solid transparent;/* t3 */}
+ 
+  .flex-container{
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    display: table-cell;  }
+  html, body {
+    width: 100%;
+    display: table;
+    
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(ellipse farthest-corner at center top, rgb(198, 225, 233) 0%, #283941 100%); 
+  }
+ 

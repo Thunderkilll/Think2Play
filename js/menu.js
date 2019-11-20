@@ -132,7 +132,13 @@ $("#play").on("click", function() {
 	    window.location.href="PicGame.html";
 	  }, 0);
 	});
-
+$("#dashboard").on("click", function() {
+	  
+	  setTimeout(function() {
+		  
+	    window.location.href="./dashboard/leaderboardchose.html";
+	  }, 0);
+	});
 $("#exit_game").on("click", function() {
 	  
 	try {
