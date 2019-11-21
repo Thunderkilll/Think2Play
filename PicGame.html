@@ -2,7 +2,7 @@
 <html>
  <head>
 		<meta charset="UTF-8">
-		<title>Pic Game</title>
+		<title>Chose a game</title>
 		<link rel="stylesheet" href="css/start_menu.css">
  </head>
  
@@ -48,15 +48,39 @@
         
 	    <script type="text/javascript">
 	     $("#g1").on("click", function() {
-              setTimeout(function() {  window.location.href="colors/level3.html"; }, 0); });
+              setTimeout(function() {  
+              	var audio_option =  sessionStorage.getItem("audio");
+	if(audio_option != "off")
+	{var audio = new Audio("sounds/clicksound.mp3");
+	audio.play();
+	}
+              window.location.href="colors/level3.html"; }, 0); });
          $("#g2").on("click", function() {
-              setTimeout(function() {  window.location.href="dots/game.html"; }, 0); 
+              setTimeout(function() { 
+              	var audio_option =  sessionStorage.getItem("audio");
+	if(audio_option != "off")
+	{var audio = new Audio("sounds/clicksound.mp3");
+	audio.play();
+	}
+               window.location.href="dots/game.html"; }, 0); 
               });
               $("#g3").on("click", function() {
-              setTimeout(function() {  window.location.href="memoryGame/difficulty.html"; }, 0); 
+              setTimeout(function() { 
+              	var audio_option =  sessionStorage.getItem("audio");
+	if(audio_option != "off")
+	{var audio = new Audio("sounds/clicksound.mp3");
+	audio.play();
+	}
+               window.location.href="memoryGame/difficulty.html"; }, 0); 
               });
            $("#return_menu").on("click", function() {
-              setTimeout(function() {  window.location.href="WelcomePage.html"; }, 0); 
+              setTimeout(function() {  
+              	var audio_option =  sessionStorage.getItem("audio");
+	if(audio_option != "off")
+	{var audio = new Audio("sounds/clicksound.mp3");
+	audio.play();
+	}
+              window.location.href="WelcomePage.html"; }, 0); 
               });
 	
 	    </script>

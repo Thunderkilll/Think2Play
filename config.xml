@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://esprit/iPlay2Think" version="1.0.0" viewmodes="maximized">
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/ColorManiaTest1" version="1.0.0" viewmodes="maximized">
     <access origin="*" subdomains="true"></access>
-    <tizen:application id="wpQiEVjrmr.est2Play" package="wpQiEVjrmr" required_version="2.4"/>
-    <tizen:background-category value="media"/>
+    <tizen:application id="wpQiEVjrmr.iPlay2Think" package="wpQiEVjrmr" required_version="2.4"/>
     <content src="index.html"/>
-    <description>this is like a game center for 3 games we are now trying to integrate them 3 inside our game center were we give the player the possibility to choose the game of thinking he wants to play</description>
     <feature name="http://tizen.org/feature/screen.size.all"/>
-    <icon src="logotizenr.png"/>
+    <icon src="icon.png"/>
     <name>iPlay2Think</name>
     <tizen:privilege name="http://tizen.org/privilege/fullscreen"/>
     <tizen:privilege name="http://tizen.org/privilege/account.read"/>
     <tizen:privilege name="http://tizen.org/privilege/account.write"/>
     <tizen:privilege name="http://tizen.org/privilege/internet"/>
     <tizen:profile name="mobile"/>
-    <tizen:setting screen-orientation="portrait" context-menu="enable" background-support="enable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+    <tizen:setting screen-orientation="portrait" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
 </widget>
