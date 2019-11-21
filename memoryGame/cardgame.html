@@ -182,8 +182,9 @@ document.head.appendChild(imported);*/
 				}
 				if($(".matched").length == $(".card").length){
 					_.win();
+					var username= sessionStorage.getItem("input_user");
 									var xhr = new XMLHttpRequest();
-	xhr.open("PUT", 'http://192.168.137.14:3000/updatescore/tanga/cards', true);
+	xhr.open("PUT", 'http://192.168.137.14:3000/updatescore/'+username+'/cards', true);
 
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -193,7 +194,7 @@ document.head.appendChild(imported);*/
 	    }
 	}
 	var scorejemla = minute * 60 + second;
-	xhr.send("username=tanga&score="+scorejemla+"&game=cards");	
+	xhr.send("username="+username+"&score="+scorejemla+"&game=cards");	
 				}
 			}
 		},

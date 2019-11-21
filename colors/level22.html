@@ -154,7 +154,7 @@ if (counteur < 4 ) {
                     $.mobile.changePage("#timeOut");
                 }
             },1000);
-
+sessionStorage.setItem("secs", secs);
              $.mobile.changePage("#myDialog");
          } else if (flag2!="" && flag3=="")
                     $('#mask').attr("src", "../images/ACT/actGames2.png");// v1 & v2
@@ -181,7 +181,7 @@ if (counteur < 4 ) {
                     $.mobile.changePage("#timeOut");
                 }
             },1000);
-
+sessionStorage.setItem("secs", secs);
              $.mobile.changePage("#myDialog");
          }else if (flag1!="" && flag3=="")
                     $('#mask').attr("src", "../images/ACT/actGames2.png");// v1 & v2
@@ -208,7 +208,7 @@ if (counteur < 4 ) {
                     $.mobile.changePage("#timeOut");
                 }
             },1000);
-
+sessionStorage.setItem("secs", secs);
              $.mobile.changePage("#myDialog");
          }
           else if (flag1!="" && flag2=="")
@@ -242,6 +242,7 @@ if (counteur < 4 ) {
             </script>
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
+ var secs =  sessionStorage.getItem("secs");
 	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
@@ -253,6 +254,7 @@ if (counteur < 4 ) {
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                secs++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 
@@ -278,7 +280,7 @@ if (counteur < 4 ) {
     $("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
     $("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
     $("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 

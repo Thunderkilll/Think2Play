@@ -99,6 +99,7 @@
                 flag1="rgb(238,19,48)";
                 if (flag2!="" && flag3!=""){
                      $('#mask').attr("src", "../images/pepsi/easy/pepsi_easy.jpg"); //v1 & v2 & v3 win
+                     sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  }
                 else if (flag2!="" && flag3=="")
@@ -114,7 +115,7 @@
                  flag2= "rgb(27,82,162)";
                  if (flag1!="" && flag3!="" ){
                      $('#mask').attr("src", "../images/pepsi/easy/pepsi_easy.jpg");  //v1 & v2 & v3 win
-                 
+                 sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  }
                 else if (flag1!="" && flag3=="")
@@ -131,7 +132,7 @@
                  flag3= "rgb(27,82,161)";
                  if (flag1!="" && flag2!="" ){
                      $('#mask').attr("src", "../images/pepsi/easy/pepsi_easy.jpg");  //v1 & v2 & v3 win
-                 
+                 sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  }
                 else if (flag1!="" && flag2=="")
@@ -149,7 +150,8 @@
           jQuery(el).remove();
          
         }
-          }else { $.mobile.changePage("#myDialog");}       
+          }else { sessionStorage.setItem("secs", secs);
+          $.mobile.changePage("#myDialog");}       
               }
               
         function nextLevel()
@@ -208,7 +210,7 @@
     $("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
     $("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
     $("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 
@@ -217,6 +219,7 @@
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
 	var second = 30, minute = 0; hour = 0;
+	 var secs =  sessionStorage.getItem("secs");
     var timer = document.querySelector(".timer");
     var interval;
 	timer.innerHTML = "0:mins/10:secs";
@@ -227,6 +230,7 @@
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                secs++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 

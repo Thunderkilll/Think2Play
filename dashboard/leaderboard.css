@@ -6,11 +6,11 @@ body {
   min-height: 450px;
   height: 100vh;
   margin: 0;
-  background: radial-gradient(ellipse farthest-corner at center top, rgb(198, 225, 233) 0%, #283941 100%);
+  background:  rgb(198, 225, 233);
   color: #fff;
   font-family: 'Open Sans', sans-serif;
 }
-/*-------------------- Leaderboard --------------------*/
+/*-------------------- Leaderboard --------------------*//* background: linear-gradient(to bottom, #3a404d, #181c26);*/
 .leaderboard {
   position: absolute;
   top: 50%;
@@ -18,7 +18,7 @@ body {
   transform: translate(-50%, -50%);
   width: 285px;
   height: 308px;
-  background: linear-gradient(to bottom, #3a404d, #181c26);
+  background:   #3a404d ;
   border-radius: 10px;
   box-shadow: 0 7px 30px rgba(62, 9, 11, .3);
 }

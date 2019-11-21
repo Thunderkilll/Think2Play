@@ -88,7 +88,7 @@ function changeImage(el) {
 	console.log(jQuery(el).css('background-color'));
 	if( jQuery(el).css('background-color') == "rgb(59, 87, 157)")
 		{
- 
+ 		sessionStorage.setItem("secs", secs);
 		$('#mask').attr("src", "../images/facebook.png");
 		$.mobile.changePage("#myDialog");
  
@@ -157,6 +157,7 @@ function nextLevel()
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
 	var second =30, minute = 0; hour = 0;
+	var secs = 0;
     var timer = document.querySelector(".timer");
     var interval;
 	timer.innerHTML = "0:mins/30:secs";
@@ -164,9 +165,11 @@ function nextLevel()
             	
                 if(minute == 0 && second ==0){
                      console.log("time ends ");
+                    
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                	secs ++;	
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 
@@ -203,7 +206,7 @@ function nextLevel()
 	$("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
 	$("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
 	$("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 

@@ -124,23 +124,25 @@ document.body.onkeydown = function(event){
 document.body.focus();
 
 function buttonClick() {
- 
+	var audio_option =  sessionStorage.getItem("audio");
+	if(audio_option != "off")
+	{var audio = new Audio("sounds/clicksound.mp3");
+	audio.play();
+	}
 $("#play").on("click", function() {
 	  
 	  setTimeout(function() {
 		  console.log("pic game");
-	    window.location.href="PicGame.html"; 
+	    window.location.href="PicGame.html";
 	  }, 0);
 	});
-
 $("#tuto").on("click", function() {
-	  
-	  setTimeout(function() {
-		  console.log("tutorials");
-	    window.location.href="./Tutorials/tuto.html";
-	  }, 0);
-	});
-
+    
+    setTimeout(function() {
+      console.log("tutorials");
+      window.location.href="./Tutorials/tuto.html";
+    }, 0);
+  });
 $("#dashboard").on("click", function() {
 	  
 	  setTimeout(function() {

@@ -80,10 +80,11 @@
         
         <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
+ var secs =  sessionStorage.getItem("secs");
 	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
-	timer.innerHTML = "0:mins/10:secs";
+	timer.innerHTML = "0:mins/30:secs";
     interval = setInterval(function(){
             	
                 if(minute == 0 && second ==0){
@@ -91,6 +92,7 @@
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                secs++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 
@@ -135,6 +137,7 @@
                 flag1="rgb(255, 177, 0)";
                 if (flag2!="" && flag3!=""){
                      $('#mask').attr("src", "../images/burgerKing/Burger-King.png"); //v1 & v2 & v3 win
+                     sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  }
                 else if (flag2!="" && flag3=="")
@@ -151,7 +154,7 @@
                  flag2= "rgb(255, 21, 30)";
                  if (flag1!="" && flag3!="" ){
                      $('#mask').attr("src", "../images/burgerKing/Burger-King.png");  //v1 & v2 & v3 win
-                 
+                 sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  }
                 else if (flag1!="" && flag3=="")
@@ -170,6 +173,7 @@
                  if (flag1!="" && flag2!="" ){
                      $('#mask').attr("src", "../images/burgerKing/Burger-King.png");  //v1 & v2 & v3 win
                      jQuery(el).remove();
+                     sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  }
                 else if (flag1!="" && flag2=="")
@@ -242,7 +246,7 @@
     $("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
     $("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
     $("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 

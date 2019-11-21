@@ -65,8 +65,8 @@
     
         <div data-role="header" data-theme="d" class="ui-corner-top ui-header ui-bar-a" role="banner">
         
-            <h1 class="ui-title" role="heading" aria-level="1">AWESOME!</h1>
-
+            <h1 class="ui-title" role="heading" aria-level="1">Congratulations!</h1> 
+				
         </div>
 
         <div data-role="content" data-theme="c" class="ui-corner-bottom ui-content ui-body-b" role="main">
@@ -143,11 +143,25 @@ if (counteur < 4 ) {
 /** condition 1 **/
     if( jQuery(el).css('background-color') == "rgb(27, 29, 116)" )
         {//azra9
+        
         console.log("1: " + jQuery(el).css('background-color'));
         flag1="rgb(27, 29, 116)";
         if (flag2!=""){
              $('#mask').attr("src", "../images/fisker/fisker.png");
              jQuery(el).remove();
+             var username= sessionStorage.getItem("input_user");
+             var xhr = new XMLHttpRequest();
+	xhr.open("PUT", 'http://192.168.137.14:3000/updatescore/'+username+'/colors', true);
+
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	xhr.onreadystatechange = function() { // Call a function when the state changes.
+	    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+	        // Request finished. Do processing here.
+	    }
+	}
+
+	xhr.send("username=tanga&score="+secs+"&game=colors");	
              $.mobile.changePage("#myDialog");}
         else{
         $('#mask').attr("src", "../images/fisker/fisker1.png");
@@ -164,6 +178,18 @@ if (counteur < 4 ) {
          if (flag1!=""){
              $('#mask').attr("src", "../images/fisker/fisker.png");
              jQuery(el).remove();
+              var xhr = new XMLHttpRequest();
+	xhr.open("PUT", 'http://192.168.137.14:3000/updatescore/tanga/colors', true);
+
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	xhr.onreadystatechange = function() { // Call a function when the state changes.
+	    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+	        // Request finished. Do processing here.
+	    }
+	}
+
+	xhr.send("username=tanga&score="+secs+"&game=colors");	
              $.mobile.changePage("#myDialog");}
         else{
          $('#mask').attr("src", "../images/fisker/fisker2.png");
@@ -194,6 +220,7 @@ if (counteur < 4 ) {
             </script>
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
+ var secs =  sessionStorage.getItem("secs");
 	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
@@ -205,6 +232,7 @@ if (counteur < 4 ) {
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                secs++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 
@@ -230,7 +258,7 @@ if (counteur < 4 ) {
     $("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
     $("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
     $("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 

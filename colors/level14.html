@@ -88,7 +88,7 @@
                 flag1="rgb(18, 123, 202)";
                 if (flag2!=""){
                      $('#mask').attr("src", "../images/intel/FreeVector-Intel-Logo.jpg");
-               
+               sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");}
                 else
                 $('#mask').attr("src", "../images/intel/intel2.jpg");
@@ -101,7 +101,7 @@
                  flag2= "rgb(18, 123, 201)";
                  if (flag1!=""){
                      $('#mask').attr("src", "../images/FreeVector-Intel-Logo.jpg");
-                 
+                 sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");}
                 else
                  $('#mask').attr("src", "../images/intel/intel3.jpg");
@@ -182,7 +182,7 @@
     $("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
     $("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
     $("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 
@@ -190,10 +190,11 @@
 </script>
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
+ var secs =  sessionStorage.getItem("secs");
 	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
-	timer.innerHTML = "0:mins/10:secs";
+	timer.innerHTML = "0:mins/30:secs";
     interval = setInterval(function(){
             	
                 if(minute == 0 && second ==0){
@@ -201,6 +202,7 @@
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                secs++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 

@@ -97,6 +97,7 @@ console.log(jQuery(el).css('background-color'));
 		if (flag2!="" && flag3!=""){
 			 $('#mask').attr("src", "../images/pizzahut/pizzahut.png");
 		 jQuery(el).remove();
+		 	sessionStorage.setItem("secs", secs);
 			 $.mobile.changePage("#myDialog");
 		      }
 		else if(flag2!="" && flag3 == ""){
@@ -120,6 +121,7 @@ console.log(jQuery(el).css('background-color'));
 		 if (flag1!="" && flag3!=""){
 			 $('#mask').attr("src", "../images/pizzahut/pizzahut.png");
 		   		jQuery(el).remove();
+		   		sessionStorage.setItem("secs", secs);
 			 $.mobile.changePage("#myDialog");}
 		else if(flag1!="" && flag3 == ""){
 			$('#mask').attr("src", "../images/pizzahut/pizzahut6.png");
@@ -140,6 +142,7 @@ console.log(jQuery(el).css('background-color'));
 	 if (flag1!="" && flag2!=""){
 		 $('#mask').attr("src", "../images/pizzahut/pizzahut.png");
 	  	 jQuery(el).remove();
+	  	 sessionStorage.setItem("secs", secs);
 		 $.mobile.changePage("#myDialog");
 		 }
 	else if(flag1!="" && flag2 == ""){
@@ -220,6 +223,7 @@ function nextLevel()
 <script type="text/javascript">
 	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
+    var secs =  sessionStorage.getItem("secs");
     var interval;
 	timer.innerHTML = "0:mins/30:secs";
     interval = setInterval(function(){
@@ -229,6 +233,7 @@ function nextLevel()
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                secs ++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 
@@ -254,7 +259,7 @@ function nextLevel()
 	$("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
 	$("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
 	$("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 

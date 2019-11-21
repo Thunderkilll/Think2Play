@@ -161,7 +161,7 @@ if (counteur < 4) {
 		flag1="rgb(27, 29, 116)";
 		if (flag2!=""){
 			 $('#mask').attr("src", "../images/visaImage.jpg");
-	 
+	 		sessionStorage.setItem("secs", secs);
 			 $.mobile.changePage("#myDialog");}
 
 			 else{
@@ -178,7 +178,7 @@ if (counteur < 4) {
 		 flag2= "rgb(229, 151, 3)";
 		 if (flag1!=""){
 			 $('#mask').attr("src", "../images/visaImage.jpg");
-		  
+		  	sessionStorage.setItem("secs", secs);
 			 $.mobile.changePage("#myDialog");}
 		else{
 			console.log("good ");
@@ -206,6 +206,9 @@ if (counteur < 4) {
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
 	var second = 30, minute = 0; hour = 0;
+	
+	var secs =  sessionStorage.getItem("secs");
+	console.log("secs are "+secs);
     var timer = document.querySelector(".timer");
     var interval;
 	timer.innerHTML = "0:mins/30:secs";
@@ -213,9 +216,11 @@ if (counteur < 4) {
             	
                 if(minute == 0 && second ==0){
                      console.log("time ends ");
+                     
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                secs++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 
@@ -241,7 +246,7 @@ if (counteur < 4) {
 	$("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
 	$("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
 	$("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 

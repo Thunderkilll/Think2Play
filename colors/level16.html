@@ -90,10 +90,11 @@
         </script>
 		<!-- *********** TIMER ********** -->
 		<script type="text/javascript">
-	var second = 10, minute = 0; hour = 0;
+		 var secs =  sessionStorage.getItem("secs");
+	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
-	timer.innerHTML = "0:mins/10:secs";
+	timer.innerHTML = "0:mins/30:secs";
     interval = setInterval(function(){
             	
                 if(minute == 0 && second ==0){
@@ -101,6 +102,7 @@
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                secs++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 
@@ -146,6 +148,7 @@
                 flag1="rgb(18, 123, 202)";
                 if (flag2!="" && flag3!="" && flag4!=""){
                      $('#mask').attr("src", "../images/Chrome/chrome0.png"); //v1 & v2 & v3 & v4 win
+                     sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  }
                 else if (flag2!="" && flag3=="" && flag4==""){
@@ -178,6 +181,7 @@
                  flag2= "rgb(255, 21, 30)";
      if (flag1!="" && flag3!="" && flag4!=""){
                      $('#mask').attr("src", "../images/Chrome/chrome0.png"); //v1 & v2 & v3 win
+                     sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  } 
                 else if (flag1!="" && flag3=="" && flag4==""){
@@ -209,6 +213,7 @@
                  flag3= "rgb(26, 162, 96)";
   if (flag2!="" && flag1!="" && flag4!=""){
                      $('#mask').attr("src", "../images/Chrome/chrome0.png"); //v1 & v2 & v3 win
+                     sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  } 
                 else if (flag2!="" && flag1=="" && flag4==""){
@@ -241,6 +246,7 @@
                  flag4 = "rgb(255, 0, 0)";
  if (flag2!="" && flag3!="" && flag1!=""){
                      $('#mask').attr("src", "../images/Chrome/chrome0.png"); //v1 & v2 & v3 win
+                     sessionStorage.setItem("secs", secs);
                      $.mobile.changePage("#myDialog");
                  }
                 else if (flag2!="" && flag3=="" && flag1==""){
@@ -337,7 +343,7 @@
     $("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
     $("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
     $("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 

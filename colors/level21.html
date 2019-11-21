@@ -152,7 +152,7 @@ if (counteur < 4 ) {
                     $.mobile.changePage("#timeOut");
                 }
             },1000);
-
+sessionStorage.setItem("secs", secs);
              $.mobile.changePage("#myDialog");
          }
         else{
@@ -168,6 +168,7 @@ if (counteur < 4 ) {
          if (flag1!=""){
              $('#mask').attr("src", "../images/cptMorgan/captain-morgan-logo.jpg");
              jQuery(el).remove();
+             sessionStorage.setItem("secs", secs);
              $.mobile.changePage("#myDialog");
          }
         else{
@@ -199,10 +200,11 @@ if (counteur < 4 ) {
             </script>
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
+ var secs =  sessionStorage.getItem("secs");
 	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
-	timer.innerHTML = minute +":mins/"+second+":secs";
+	timer.innerHTML = minute +":mins/"  +second+ ":secs";
     interval = setInterval(function(){
             	
                 if(minute == 0 && second ==0){
@@ -210,6 +212,7 @@ if (counteur < 4 ) {
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+                secs++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 
@@ -236,7 +239,7 @@ if (counteur < 4 ) {
     $("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
     $("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
     $("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 

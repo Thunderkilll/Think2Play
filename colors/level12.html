@@ -108,7 +108,7 @@
     $("#exit").on("click", function() {
               setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
     $("#lead").on("click", function() {
-              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+              setTimeout(function() {  window.location.href="../dashboard/index.html"; }, 0); });
     $("#tuto").on("click", function() {
               setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
 
@@ -129,6 +129,7 @@
     	 
 <!-- *********** TIMER ********** -->	 	
 <script type="text/javascript">
+ var secs =  sessionStorage.getItem("secs");
 	var second = 30, minute = 0; hour = 0;
     var timer = document.querySelector(".timer");
     var interval;
@@ -140,6 +141,7 @@
                       $.mobile.changePage("#timeOut");   	 
                      
                 }else{
+               		 secs++;
                 	second--;
                 timer.innerHTML = minute+":mins/"+second+":secs";
                 
@@ -195,7 +197,7 @@ function changeImage(el) {
                     flag1="rgb(255, 255, 255)";
                     if (flag2!=""){
                          $('#mask').attr("src", "../images/cocacola/Coca-Cola4.png");
-                   
+                   sessionStorage.setItem("secs", secs);
                          $.mobile.changePage("#myDialog");}
                     else
                     $('#mask').attr("src", "../images/cocacola/Coca-Cola2.png");
@@ -207,7 +209,7 @@ function changeImage(el) {
                      flag2= "rgb(255, 0, 0)";
                      if (flag1!=""){
                          $('#mask').attr("src", "../images/cocacola/Coca-Cola4.png");
-                     
+                     sessionStorage.setItem("secs", secs);
                          $.mobile.changePage("#myDialog");}
                     else
                      $('#mask').attr("src", "../images/cocacola/Coca-Cola5.png");
@@ -220,7 +222,9 @@ function changeImage(el) {
                  jQuery(el).remove();
              
                  }
-                 }else { $.mobile.changePage("#myDialog"); }    
+                 }else {
+                 sessionStorage.setItem("secs", secs); 
+                 $.mobile.changePage("#myDialog"); }    
                   }
                   
             function nextLevel()
