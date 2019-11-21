@@ -6,7 +6,16 @@
 <link rel="stylesheet" href="./leaderboard.css">
 </head>
 <body>
-
+	<header>
+			<h1>
+				<img id ="back_icon" src="../images/UI/back.png" width="32"  onclick="goBack()"/>   
+				<img id ="help_icon" src="../images/UI/help1.png" width="32" onclick="goTuto()" /> 
+				<img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
+				<img id ="music_icon" src="../images/UI/music.png" width="32" onclick="muteSound()" /> 
+			  
+			</h1>
+		</header>
+    
 <div class="leaderboard">
   <h1>
     <svg class="ico-cup">
@@ -44,3 +53,18 @@
 </html>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="leaderboard.js"></script> 
+<script type="text/javascript">
+     function goBack() {
+       
+              setTimeout(function() {  window.location.href="leaderboardchose.html"; }, 0);
+         }
+            function exitToMenu(){
+                   setTimeout(function() {  window.location.href="../WelcomePage.html"; }, 0);
+     }
+ function muteSound(){
+              //mute sound
+     }
+  function goTuto(){
+            setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0);
+     }    
+</script>

@@ -53,6 +53,20 @@ a {outline:none;}
   font-size: 18px;
   font-family: overwatch;
 }
+#lb {
+  display: inline-block;
+  margin: 0 5rem;
+  color: white;
+  font-size: 23px;
+  font-family: overwatch;
+}
+#timerr {
+  display: inline-block;
+  margin: 0 1rem;
+  color: white;
+  font-size: 18px;
+  font-family: overwatch;
+}
 .conteur {
   display: inline-block;
   margin: 0 1rem;

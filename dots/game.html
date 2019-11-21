@@ -19,16 +19,20 @@
   </head>
 
   <body>
-
+ 
   <div id="page" data-role="main"> 
   
      <div id="header" data-role="header">
-     
+    
+			 
+	 
+ 
            <div class="navbuttons">
               <center>
-              	 
+   
               <div style='margin-top:10px'>
               	<!--  <span id="textplayer1">Player 1</span>-->
+              	  <span> <img id ="exit1_icon" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   	 </span> 
                  <span id="player1score" style='font-size:30px;color:black;width:50px;display:inline-block;margin-right:10px'>0</span>
                  <img src="images/greenball.png" id="player1" class="playerimages">
                  
@@ -83,7 +87,10 @@
     <script src="js/GamePad.js"></script>
 
     <script>
-
+ 
+            function exitToMenu(){
+                   setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
+     }
     $(".dropdown>[data-toggle='dropdown']").on('click', function(){
   	  $(this).parent(".dropdown").toggleClass("open");
   	});

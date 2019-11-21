@@ -4,9 +4,17 @@
   <meta charset="UTF-8">
   <title>Chose difficulty</title>
   <link rel="stylesheet" href="difficulty.css">
-
+<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 </head>
 <body>
+<h1>
+				<img id ="back_icon" style="display: block;" src="../images/UI/back.png" width="32"  onclick="goBack()"/>   
+				<img id ="help_icon" style="display: block;" src="../images/UI/help1.png" width="32" onclick="goTuto()" /> 
+				<img id ="exit1_icon" style="display: block;" src="../images/UI/exit1.png" width="32" onclick="exitToMenu()"/>   
+			 
+			 
+			</h1>
 <!-- partial:index.partial.html -->
 <div class="flex-container" style="text-align:center;">
             <div>
@@ -30,6 +38,15 @@
 
 
 <script>
+ function goBack() {
+	     
+              setTimeout(function() {  window.location.href="../PicGame.html"; }, 0);
+         }
+            function exitToMenu(){
+                   setTimeout(function() {  window.location.href="../WelcomePage.html"; }, 0);
+     }  function goTuto(){
+            setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0);
+     } 
     function easy_selected() {
     sessionStorage.setItem("difficulty", "easy");
 

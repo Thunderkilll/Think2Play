@@ -12,8 +12,7 @@
 </head>
 <body>
 
-<div class="timer">
-	</div>
+<div class="timer" id ="timerr"> </div>
 	<div class="counter">
 	</div>
 <!-- partial:index.partial.html -->
@@ -39,12 +38,12 @@
 
 		<div data-role="content" data-theme="c" class="ui-corner-bottom ui-content ui-body-b" role="main">
 			
-			 <img src="../images/menu/gameover.png" style="display: block; margin-left: auto;margin-right: auto; width: 325px; height: 200px;" /> <br>
+			 <img src="../images/menu/go1.png" style="display: block;  width: 100%; height: 300px;" /> <br>
 			 
 			<br>
-			 <img src="../images/UI/exit1.png" id="next" style="margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/lederboard.png" id="next" style=" margin-right: auto; width: 45px; height: 45px"/>
-		 	<img src="../images/UI/help1.png" id="next" style="  margin-right: auto; width: 45px; height: 45px"/>
+			 <img src="../images/UI/exit1.png" id="exit" style="margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/lederboard.png" id="lead" style=" margin-right: auto; width: 45px; height: 45px"/>
+		 	<img src="../images/UI/help1.png" id="tuto" style="  margin-right: auto; width: 45px; height: 45px"/>
 		</div>
 	</div>
 	
@@ -61,6 +60,16 @@
  
 <!--   <script  src="./cardscript.js"></script> -->
 <script>
+
+$("#exit").on("click", function() {
+              setTimeout(function() {  window.location.href="../PicGame.html"; }, 0); });
+$("#lead").on("click", function() {
+              setTimeout(function() {  window.location.href="../dashboard/leaderboardchose.html"; }, 0); });
+$("#tuto").on("click", function() {
+              setTimeout(function() {  window.location.href="../Tutorials/tuto.html"; }, 0); });
+
+
+
 	document.getElementById( 
                   "timeOut").style.visibility = "hidden"; 
 // Memory Game

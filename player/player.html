@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Chose difficulty</title>
+ 
+<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+ 
+ <div id="namePlayer" data-role="dialog" style="top:0px;left:0px" class="ui-dialog-contain ui-corner-all ui-overlay-shadow ">
+	
+		<div data-role="header" data-theme="d" class="ui-corner-top ui-header ui-bar-a" role="banner">
+		
+			<h1 class="ui-title" role="heading" aria-level="1">Give us your Username </h1>
+
+		</div>
+
+		<div data-role="content" data-theme="c" class="ui-corner-bottom ui-content ui-body-b" role="main">
+			<form class="w3-container">
+			<br>
+			 <label id="lb">USERNAME</label>
+			 <br>
+  				<input class="w3-input w3-border w3-round-xxlarge" id="input_user" name="username" type="text"></p>
+			<br>
+			 <img src="../images/UI/5.png" id="submit" style="margin-left: 45%; margin-right: auto; width: 45px; height: 45px" onclick="check()"/>
+			 <!--  img src="../images/UI/6.png" id="cancel_input" style="margin-left: 200px; margin-right: auto; width: 45px; height: 45px"/>-->
+		 </form>
+		</div>
+	</div>
+</body>
+
+
+<script>
+
+	function check() {
+	var input =  document.getElementById("input_user").value ;
+  if(input !=""){
+	 			sessionStorage.setItem("input_user",input);
+
+                window.location.href="../WelcomePage.html"; 
+                }
+  else{
+  console.log("error empty");
+  }    
+	}
+  
+            
+       
+
+</script>
+</html>

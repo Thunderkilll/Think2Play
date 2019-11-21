@@ -11,4 +11,4 @@
 
         	   window.location.href="leaderboard.html"; });
            $("#return_menu").on("click", function() {
-        	   window.location.href="WelcomePage.html"; });
+        	   window.location.href="../WelcomePage.html"; });
